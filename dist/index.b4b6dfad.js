@@ -25252,22 +25252,22 @@ class MainView extends _reactDefault.default.Component {
             movies: [
                 {
                     _id: 1,
-                    Title: 'Inception',
-                    Description: 'desc1...',
-                    ImagePath: '...'
+                    Title: "Inception",
+                    Description: "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster",
+                    ImagePath: "..."
                 },
                 {
                     _id: 2,
-                    Title: 'The Shawshank Redemption',
-                    Description: 'desc2...',
-                    ImagePath: '...'
+                    Title: "The Shawshank Redemption",
+                    Description: "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+                    ImagePath: "..."
                 },
                 {
                     _id: 3,
-                    Title: 'Gladiator',
-                    Description: 'desc3...',
-                    ImagePath: '...'
-                }
+                    Title: "Gladiator",
+                    Description: "A former Roman General sets out to exact vengeance against the corrupt emperor who murdered his family and sent him into slavery.",
+                    ImagePath: "..."
+                }, 
             ],
             selectedMovie: null
         };
@@ -25279,19 +25279,12 @@ class MainView extends _reactDefault.default.Component {
     }
     render() {
         const { movies , selectedMovie  } = this.state;
-        if (selectedMovie) return /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_movieView.MovieView, {
-            movie: selectedMovie
-        }, void 0, false, {
-            fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 27,
-            columnNumber: 31
-        }, this);
         if (movies.length === 0) return /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
             className: "main-view",
             children: "The list is empty!"
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 29,
+            lineNumber: 44,
             columnNumber: 37
         }, this);
         return /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
@@ -25303,7 +25296,7 @@ class MainView extends _reactDefault.default.Component {
                 }
             }, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 34,
+                lineNumber: 49,
                 columnNumber: 13
             }, this) : movies.map((movie1)=>/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_movieCard.MovieCard, {
                     movie: movie1,
@@ -25312,18 +25305,17 @@ class MainView extends _reactDefault.default.Component {
                     }
                 }, movie1._id, false, {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 36,
+                    lineNumber: 51,
                     columnNumber: 13
                 }, this)
             )
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 32,
+            lineNumber: 47,
             columnNumber: 7
         }, this);
     }
 }
-exports.default = MainView;
 
   $parcel$ReactRefreshHelpers$f7a6.postlude(module);
 } finally {
