@@ -1,1 +1,1 @@
-{"mappings":"","sources":["src/components/login-view/login-view.scss"],"sourcesContent":[null],"names":[],"version":3,"file":"index.27d8da6b.css.map","sourceRoot":"/__parcel_source_root/"}
+{"mappings":"AAAA","sources":["src/components/login-view/login-view.scss","src/components/reg-view/reg-view.scss"],"sourcesContent":["register {\r\n    align-items: flex-end;\r\n}",null],"names":[],"version":3,"file":"index.27d8da6b.css.map","sourceRoot":"/__parcel_source_root/"}

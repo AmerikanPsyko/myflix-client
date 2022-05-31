@@ -4,6 +4,7 @@ import axios from 'axios';
 import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
+import { RegistrationView } from '../reg-view/reg-view';
 
 export class MainView extends React.Component {
 
@@ -17,9 +18,18 @@ export class MainView extends React.Component {
     };
   }
 
-  componentDidMount() {
-    /* ... */
-  }
+  
+    componentDidMount(){
+      axios.get('https://cfmyflix.herokuapp.com/movies')
+        .then(response => {
+          this.setState({
+            movies: response.data
+          });
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
 
 /*When a movie is clicked, this function is invoked and updates the state of the `selectedMovie` *property to that movie*/
 
