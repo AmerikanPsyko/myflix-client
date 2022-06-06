@@ -2,6 +2,14 @@ register {
   align-items: flex-end;
 }
 
+.form-label {
+  color: #000;
+}
+
+.nav {
+  width: auto;
+}
+
 
 
 .my-flix {

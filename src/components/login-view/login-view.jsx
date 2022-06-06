@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import "./login-view.scss";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { Container, Navbar } from "react-bootstrap";
+import { Container, Navbar, Nav } from "react-bootstrap";
+
 
 export function LoginView(props) {
   const [username, setUsername] = useState("");
@@ -17,43 +18,42 @@ export function LoginView(props) {
   };
 
   return (
-    <Container>
-      <>
-        <Navbar expand="lg" bg="dark">
-          <Container>
-            <Navbar.Brand href="#home">
-              <img
-                src="../img/movie."
-                width="30"
-                height="30"
-                className="d-inline-block align-top"
-                alt="React Bootstrap logo"
-              />
-            </Navbar.Brand>
-          </Container>
-        </Navbar>
-      </>
-      
-      <Form>
-        <Form.Group className="mb-3" controlId="formUsername">
-          <Form.Label>Username:</Form.Label>
-          <Form.Control
-            type="text"
-            onChange={(e) => setUsername(e.target.value)}
-          />
-        </Form.Group>
+    <Container className="main">
+      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Navbar.Brand href="#home">myFlix!</Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse bg="dark" id="responsive-navbar-nav">
+          <Nav className="me-auto"></Nav>
+          <Nav>
+            <Nav.Link eventKey={2} href="#memes">
+              Register
+            </Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
 
-        <Form.Group className="mb-3" controlId="formPassword">
-          <Form.Label>Password:</Form.Label>
-          <Form.Control
-            type="password"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </Form.Group>
-        <Button variant="primary" type="submit" onClick={handleSubmit}>
-          Submit
-        </Button>
-      </Form>
+      <Container className="form">
+        <Form>
+          <Form.Group className="mb-3" controlId="formUsername">
+            <Form.Label>Username:</Form.Label>
+            <Form.Control
+              type="text"
+              onChange={(e) => setUsername(e.target.value)}
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="formPassword">
+            <Form.Label>Password:</Form.Label>
+            <Form.Control
+              type="password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </Form.Group>
+          <Button variant="primary" type="submit" onClick={handleSubmit}>
+            Submit
+          </Button>
+        </Form>
+      </Container>
     </Container>
   );
 }
