@@ -4,6 +4,7 @@ import axios from "axios";
 import { LoginView } from "../login-view/login-view";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
+import { Navbar } from "../nav/navbar";
 
 
 
@@ -30,6 +31,14 @@ export class MainView extends React.Component {
       });
       this.getMovies(accessToken);
     }
+  }
+
+  onLoggedOut() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    this.setState({
+      user: null
+    });
   }
 
   /*When a movie is clicked, this function is invoked and updates the state of the `selectedMovie` *property to that movie*/
@@ -84,12 +93,16 @@ export class MainView extends React.Component {
     // Before the movies have been loaded
     if (movies.length === 0) return <div className="main-view" />;
 
+    
+
     return (
         
     
       
       <div className="main-view">
         {/*If the state of `selectedMovie` is not null, that selected movie will be returned otherwise, all *movies will be returned*/}
+        
+        <Navbar />
         
         {selectedMovie ? (
           <Row className="justify-content-md-center">
