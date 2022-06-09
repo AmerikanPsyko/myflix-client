@@ -1,10 +1,14 @@
 import React from "react";
 import axios from "axios";
+import "./main-view.scss";
+
+
 
 import { LoginView } from "../login-view/login-view";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
-import { Navbar } from "../nav/navbar";
+import { Nav, Navbar } from "react-bootstrap";
+// import { Navbar } from "../nav/navbar";
 
 
 
@@ -102,7 +106,22 @@ export class MainView extends React.Component {
       <div className="main-view">
         {/*If the state of `selectedMovie` is not null, that selected movie will be returned otherwise, all *movies will be returned*/}
         
-        <Navbar />
+        {/* <Navbar />; */}
+        {/* <button onClick={() => { this.onLoggedOut() }}>Logout</button>; */}
+
+        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+      <Navbar.Brand className="nav-brand" href="#home">myFlix!</Navbar.Brand>
+      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      <Navbar.Collapse bg="dark" id="responsive-navbar-nav">
+        <Nav className="me-auto"></Nav>
+      <Nav className="nav-button"><button onClick={() => { this.onLoggedOut() }}>Logout</button></Nav>
+      <Nav className="nav-button">
+          <button>Register</button>
+            
+          
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
         
         {selectedMovie ? (
           <Row className="justify-content-md-center">

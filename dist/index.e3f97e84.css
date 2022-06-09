@@ -15,6 +15,14 @@
   background-color: gray;
 }
 
+.button-open {
+  color: #fff;
+  font: inherit;
+  background: pink;
+  padding: .5px;
+  text-decoration: none;
+}
+
 .movie-title, .movie-description {
   color: #fff;
 }
@@ -37,7 +45,13 @@ register {
 
 
 
-
+button {
+  color: #fff;
+  font: inherit;
+  background: pink;
+  padding: .5px;
+  text-decoration: none;
+}
 
 .my-flix {
   color: #4682b4;
