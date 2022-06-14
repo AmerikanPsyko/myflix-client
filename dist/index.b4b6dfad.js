@@ -31089,36 +31089,35 @@ function LoginView(props) {
         }
         return isReq;
     };
-    // const handleSubmit = (e) => {
-    //   e.preventDefault();
-    //   const isReq = validate();
-    //   if(isReq) {
-    //     /* Send request to the server for authentication */
-    //     axios.post('https://cfmyflix.herokuapp.com/login', {
-    //         Username: username,
-    //         Password: password
-    //     })
-    //     .then(response =>{
-    //         const data = response.data;
-    //         props.onLoggedIn(data);
-    //     })
-    //     .catch(e => {
-    //       console.log('no such user')
-    //     });
-    //   }
-    // };
     const handleSubmit = (e)=>{
         e.preventDefault();
-        /* Send a request to the server for authentication */ _axiosDefault.default.post("https://cfmyflix.herokuapp.com/login", {
+        const isReq = validate();
+        if (isReq) /* Send request to the server for authentication */ _axiosDefault.default.post('https://cfmyflix.herokuapp.com/login', {
             Username: username,
             Password: password
         }).then((response)=>{
             const data = response.data;
             props.onLoggedIn(data);
         }).catch((e)=>{
-            console.log("no such user");
+            console.log('no such user');
         });
     };
+    // const handleSubmit = (e) => {
+    //   e.preventDefault();
+    //   /* Send a request to the server for authentication */
+    //   axios
+    //     .post("https://cfmyflix.herokuapp.com/login", {
+    //       Username: username,
+    //       Password: password,
+    //     })
+    //     .then((response) => {
+    //       const data = response.data;
+    //       props.onLoggedIn(data);
+    //     })
+    //     .catch((e) => {
+    //       console.log("no such user");
+    //     });
+    // };
     return /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Container, {
         className: "main",
         children: [
@@ -31201,54 +31200,70 @@ function LoginView(props) {
             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default, {
                 children: [
                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Group, {
-                        className: "mb-3",
                         controlId: "formUsername",
                         children: [
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Label, {
                                 children: "Username:"
                             }, void 0, false, {
                                 fileName: "src/components/login-view/login-view.jsx",
-                                lineNumber: 99,
-                                columnNumber: 13
+                                lineNumber: 119,
+                                columnNumber: 9
                             }, this),
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Control, {
                                 type: "text",
+                                placeholder: "Enter username",
+                                value: username,
                                 onChange: (e)=>setUsername(e.target.value)
                             }, void 0, false, {
                                 fileName: "src/components/login-view/login-view.jsx",
-                                lineNumber: 100,
-                                columnNumber: 13
+                                lineNumber: 120,
+                                columnNumber: 9
+                            }, this),
+                            usernameErr && /*#__PURE__*/ _jsxDevRuntime.jsxDEV("p", {
+                                children: usernameErr
+                            }, void 0, false, {
+                                fileName: "src/components/login-view/login-view.jsx",
+                                lineNumber: 122,
+                                columnNumber: 25
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/login-view/login-view.jsx",
-                        lineNumber: 98,
-                        columnNumber: 11
+                        lineNumber: 118,
+                        columnNumber: 7
                     }, this),
                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Group, {
-                        className: "mb-3",
                         controlId: "formPassword",
                         children: [
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Label, {
-                                children: "Password:"
+                                children: "Password"
                             }, void 0, false, {
                                 fileName: "src/components/login-view/login-view.jsx",
-                                lineNumber: 107,
-                                columnNumber: 13
+                                lineNumber: 126,
+                                columnNumber: 9
                             }, this),
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Control, {
                                 type: "password",
+                                placeholder: "Password",
+                                value: password,
                                 onChange: (e)=>setPassword(e.target.value)
                             }, void 0, false, {
                                 fileName: "src/components/login-view/login-view.jsx",
-                                lineNumber: 108,
-                                columnNumber: 13
+                                lineNumber: 127,
+                                columnNumber: 9
+                            }, this),
+                            passwordErr && /*#__PURE__*/ _jsxDevRuntime.jsxDEV("p", {
+                                children: passwordErr
+                            }, void 0, false, {
+                                fileName: "src/components/login-view/login-view.jsx",
+                                lineNumber: 129,
+                                columnNumber: 25
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/login-view/login-view.jsx",
-                        lineNumber: 106,
-                        columnNumber: 11
+                        lineNumber: 125,
+                        columnNumber: 7
                     }, this),
                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_buttonDefault.default, {
                         variant: "primary",
@@ -31257,14 +31272,14 @@ function LoginView(props) {
                         children: "Submit"
                     }, void 0, false, {
                         fileName: "src/components/login-view/login-view.jsx",
-                        lineNumber: 113,
-                        columnNumber: 11
+                        lineNumber: 131,
+                        columnNumber: 7
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/components/login-view/login-view.jsx",
-                lineNumber: 97,
-                columnNumber: 7
+                lineNumber: 117,
+                columnNumber: 11
             }, this)
         ]
     }, void 0, true, {
