@@ -33,42 +33,42 @@ export function LoginView(props) {
     return isReq;
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const isReq = validate();
-    if(isReq) {
-      /* Send request to the server for authentication */
-      axios.post('https://cfmyflix.herokuapp.com/login', {
-          Username: username,
-          Password: password
-      })
-      .then(response =>{
-          const data = response.data;
-          props.onLoggedIn(data);
-      })
-      .catch(e => {
-        console.log('no such user')
-      });
-    }
-  };
-
-
   // const handleSubmit = (e) => {
   //   e.preventDefault();
-  //   /* Send a request to the server for authentication */
-  //   axios
-  //     .post("https://cfmyflix.herokuapp.com/login", {
-  //       Username: username,
-  //       Password: password,
+  //   const isReq = validate();
+  //   if(isReq) {
+  //     /* Send request to the server for authentication */
+  //     axios.post('https://cfmyflix.herokuapp.com/login', {
+  //         Username: username,
+  //         Password: password
   //     })
-  //     .then((response) => {
-  //       const data = response.data;
-  //       props.onLoggedIn(data);
+  //     .then(response =>{
+  //         const data = response.data;
+  //         props.onLoggedIn(data);
   //     })
-  //     .catch((e) => {
-  //       console.log("no such user");
+  //     .catch(e => {
+  //       console.log('no such user')
   //     });
+  //   }
   // };
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    /* Send a request to the server for authentication */
+    axios
+      .post("https://cfmyflix.herokuapp.com/login", {
+        Username: username,
+        Password: password,
+      })
+      .then((response) => {
+        const data = response.data;
+        props.onLoggedIn(data);
+      })
+      .catch((e) => {
+        console.log("no such user");
+      });
+  };
 
   return (
     <Container className="main">
@@ -95,21 +95,26 @@ export function LoginView(props) {
       </Navbar>
 
       <Form>
-      <Form.Group controlId="formUsername">
-        <Form.Label>Username:</Form.Label>
-        <Form.Control type="text" placeholder="Enter username" value={username} onChange={e => setUsername(e.target.value)} />
-        
-</Form.Group>
+          <Form.Group className="mb-3" controlId="formUsername">
+            <Form.Label>Username:</Form.Label>
+            <Form.Control
+              type="text"
+              onChange={(e) => setUsername(e.target.value)}
+            />
+          </Form.Group>
 
-      <Form.Group controlId="formPassword">
-        <Form.Label>Password</Form.Label>
-        <Form.Control type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
-        
-</Form.Group>
-      <Button variant="primary" type="submit" onClick={handleSubmit}>
-        Submit
-        </Button>
-    </Form>
-    </Container>
-  )
+          <Form.Group className="mb-3" controlId="formPassword">
+            <Form.Label>Password:</Form.Label>
+            <Form.Control
+              type="password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </Form.Group>
+          <Button variant="primary" type="submit" onClick={handleSubmit}>
+            Submit
+          </Button>
+        </Form>
+      </Container>
+    
+  );
 }

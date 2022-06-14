@@ -31089,35 +31089,36 @@ function LoginView(props) {
         }
         return isReq;
     };
+    // const handleSubmit = (e) => {
+    //   e.preventDefault();
+    //   const isReq = validate();
+    //   if(isReq) {
+    //     /* Send request to the server for authentication */
+    //     axios.post('https://cfmyflix.herokuapp.com/login', {
+    //         Username: username,
+    //         Password: password
+    //     })
+    //     .then(response =>{
+    //         const data = response.data;
+    //         props.onLoggedIn(data);
+    //     })
+    //     .catch(e => {
+    //       console.log('no such user')
+    //     });
+    //   }
+    // };
     const handleSubmit = (e)=>{
         e.preventDefault();
-        const isReq = validate();
-        if (isReq) /* Send request to the server for authentication */ _axiosDefault.default.post('https://cfmyflix.herokuapp.com/login', {
+        /* Send a request to the server for authentication */ _axiosDefault.default.post("https://cfmyflix.herokuapp.com/login", {
             Username: username,
             Password: password
         }).then((response)=>{
             const data = response.data;
             props.onLoggedIn(data);
         }).catch((e)=>{
-            console.log('no such user');
+            console.log("no such user");
         });
     };
-    // const handleSubmit = (e) => {
-    //   e.preventDefault();
-    //   /* Send a request to the server for authentication */
-    //   axios
-    //     .post("https://cfmyflix.herokuapp.com/login", {
-    //       Username: username,
-    //       Password: password,
-    //     })
-    //     .then((response) => {
-    //       const data = response.data;
-    //       props.onLoggedIn(data);
-    //     })
-    //     .catch((e) => {
-    //       console.log("no such user");
-    //     });
-    // };
     return /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Container, {
         className: "main",
         children: [
@@ -31200,6 +31201,7 @@ function LoginView(props) {
             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default, {
                 children: [
                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Group, {
+                        className: "mb-3",
                         controlId: "formUsername",
                         children: [
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Label, {
@@ -31207,49 +31209,46 @@ function LoginView(props) {
                             }, void 0, false, {
                                 fileName: "src/components/login-view/login-view.jsx",
                                 lineNumber: 99,
-                                columnNumber: 9
+                                columnNumber: 13
                             }, this),
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Control, {
                                 type: "text",
-                                placeholder: "Enter username",
-                                value: username,
                                 onChange: (e)=>setUsername(e.target.value)
                             }, void 0, false, {
                                 fileName: "src/components/login-view/login-view.jsx",
                                 lineNumber: 100,
-                                columnNumber: 9
+                                columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/login-view/login-view.jsx",
                         lineNumber: 98,
-                        columnNumber: 7
+                        columnNumber: 11
                     }, this),
                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Group, {
+                        className: "mb-3",
                         controlId: "formPassword",
                         children: [
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Label, {
-                                children: "Password"
+                                children: "Password:"
                             }, void 0, false, {
                                 fileName: "src/components/login-view/login-view.jsx",
-                                lineNumber: 105,
-                                columnNumber: 9
+                                lineNumber: 107,
+                                columnNumber: 13
                             }, this),
                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_formDefault.default.Control, {
                                 type: "password",
-                                placeholder: "Password",
-                                value: password,
                                 onChange: (e)=>setPassword(e.target.value)
                             }, void 0, false, {
                                 fileName: "src/components/login-view/login-view.jsx",
-                                lineNumber: 106,
-                                columnNumber: 9
+                                lineNumber: 108,
+                                columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/login-view/login-view.jsx",
-                        lineNumber: 104,
-                        columnNumber: 7
+                        lineNumber: 106,
+                        columnNumber: 11
                     }, this),
                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_buttonDefault.default, {
                         variant: "primary",
@@ -31258,8 +31257,8 @@ function LoginView(props) {
                         children: "Submit"
                     }, void 0, false, {
                         fileName: "src/components/login-view/login-view.jsx",
-                        lineNumber: 109,
-                        columnNumber: 7
+                        lineNumber: 113,
+                        columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
