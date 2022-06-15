@@ -25415,9 +25415,7 @@ class MainView extends _reactDefault.default.Component {
                     lineNumber: 96,
                     columnNumber: 11
                 }, this),
-                "const ",
-                user1,
-                " = this.state; /* If there is no user, the LoginView is rendered. If there is a user logged in, the user details are *passed as a prop to the LoginView*/ if (!user) return ",
+                "/* If there is no user, the LoginView is rendered. If there is a user logged in, the user details are *passed as a prop to the LoginView*/ if (!user) return ",
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_loginView.LoginView, {
                     onLoggedIn: (user)=>this.onLoggedIn(user)
                 }, void 0, false, {

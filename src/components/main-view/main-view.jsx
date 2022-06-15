@@ -114,7 +114,7 @@ export class MainView extends React.Component {
               </Nav>
             </Navbar.Collapse>
           </Navbar>
-          const { movies, selectedMovie, user } = this.state;
+          {/* const { movies, selectedMovie, user } = this.state; */}
 
     /* If there is no user, the LoginView is rendered. If there is a user logged in, the user details are *passed as a prop to the LoginView*/
     if (!user)
