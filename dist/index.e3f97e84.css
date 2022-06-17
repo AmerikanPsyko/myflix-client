@@ -43,6 +43,8 @@ register {
   width: auto;
 }
 
+
+
 button {
   color: #fff;
   font: inherit;
@@ -50,8 +52,6 @@ button {
   padding: .5px;
   text-decoration: none;
 }
-
-
 
 .my-flix {
   color: #4682b4;
