@@ -1,60 +1,55 @@
-.app-container {
-  background-color: #000;
+.card-style {
+  margin: 20px;
 }
 
-.body {
-  background-color: gray;
+.image-style {
+  width: 286px;
+  height: 400px;
 }
 
-.button-open {
-  color: #fff;
+.button-style {
+  margin-left: 180px;
 }
 
-.h2-title {
-  color: #fff;
-  background-color: gray;
+.add-list__button {
+  margin-left: 10px;
 }
 
-.button-open {
-  color: #fff;
-  font: inherit;
-  background: pink;
-  padding: .5px;
-  text-decoration: none;
+.movie-view__card {
+  margin: 20px;
 }
 
-.movie-title, .movie-description {
-  color: #fff;
+.login-form__style {
+  margin: 20px;
 }
 
-.label, .value {
-  font-size: x-large;
+.navbar-container, .navbar-elements__style {
+  background-color: #fff;
 }
 
-register {
-  align-items: flex-end;
+.container-style {
+  padding-top: 50px;
 }
 
-.form-label {
+.directorCard {
+  margin: 30px;
+}
+
+.directorTitle {
   color: #000;
 }
 
-.nav {
-  width: auto;
+.genreCard {
+  margin: 30px;
 }
 
 
 
-button {
+* {
+  box-sizing: border-box;
   color: #fff;
-  font: inherit;
-  background: pink;
-  padding: .5px;
-  text-decoration: none;
-}
-
-.my-flix {
-  color: #4682b4;
+  background-color: #1a1e23;
+  font-family: Playfair Display, serif;
 }
 
 /*# sourceMappingURL=index.e3f97e84.css.map */

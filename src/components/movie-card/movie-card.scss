@@ -1,24 +1,17 @@
-.app-container {
-    background-color: black;
+$backgroundColor: #1A1E23;
+$textColor: #FFFFFF;
+$elementsColor: #ffc107;
+
+.card-style {
+  margin: 20px;
 }
 
-.body {
-    background-color: gray;
+.image-style {
+  width: 286px;
+  height: 400px;
 }
 
-.button-open {
-    color: white;
+.button-style {
+  margin-left: 180px;
 }
-
-.h2-title {
-    color: white;
-    background-color: gray;
-}
-.button-open {
-    background: pink;
-    color: white;
-    font: inherit;
-    padding: 0.5px;
-    text-decoration: none;
- }
 
