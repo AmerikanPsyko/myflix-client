@@ -15,6 +15,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Routes } from "react-router-dom";
 import { BrowserRouter as Router } from "react-router-dom";
+import { Route } from "react-router-dom";
 
 export class MainView extends React.Component {
   constructor() {
@@ -47,6 +48,7 @@ export class MainView extends React.Component {
       user: null,
     });
   }
+  
 
   /*When a movie is clicked, this function is invoked and updates the state of the `selectedMovie` *property to that movie*/
 
@@ -103,6 +105,7 @@ export class MainView extends React.Component {
         </Row>
       );
     if (movies.length === 0) return <div className="main-view" />;
+    <button onClick={() => { this.onLoggedOut() }}>Logout</button>
 
     return (
       <Router>
