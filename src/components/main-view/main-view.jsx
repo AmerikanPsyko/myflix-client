@@ -14,7 +14,7 @@ import { RegistrationView } from "../reg-view/reg-view";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Routes } from "react-router-dom";
-import { Router } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 
 export class MainView extends React.Component {
   constructor() {
@@ -107,8 +107,8 @@ export class MainView extends React.Component {
     return (
       <Router>
         <div className="main-view">
-          <Routes
-            exact
+          <Route
+            // exact
             path="/"
             render={() => {
               if (!user)
