@@ -23,12 +23,24 @@
   text-decoration: none;
 }
 
+.card-body {
+  background-color: gray;
+}
+
 .movie-title, .movie-description {
   color: #fff;
 }
 
 .label, .value {
   font-size: x-large;
+}
+
+.add-list__button {
+  margin-left: 10px;
+}
+
+.movie-view__card {
+  margin: 20px;
 }
 
 register {

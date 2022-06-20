@@ -8,6 +8,9 @@ import { LoginView } from "../login-view/login-view";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 import { Nav, Navbar } from "react-bootstrap";
+import { GenreView } from "../genre-view/genre-view";
+import { DirectorView } from "../director-view/director-view";
+
 // import { Navbar } from "../nav/navbar";
 
 import { RegistrationView } from "../reg-view/reg-view";
@@ -48,7 +51,6 @@ export class MainView extends React.Component {
       user: null,
     });
   }
-  
 
   /*When a movie is clicked, this function is invoked and updates the state of the `selectedMovie` *property to that movie*/
 
@@ -105,7 +107,13 @@ export class MainView extends React.Component {
         </Row>
       );
     if (movies.length === 0) return <div className="main-view" />;
-    <button onClick={() => { this.onLoggedOut() }}>Logout</button>
+    <button
+      onClick={() => {
+        this.onLoggedOut();
+      }}
+    >
+      Logout
+    </button>;
 
     return (
       <Router>
@@ -205,7 +213,6 @@ export class MainView extends React.Component {
               <ProfileView user={user} history={history} movies={movies} onBackClick={() => history.goBack()} />
             </Col>
           }} /> */}
-
         </div>
       </Router>
     );
