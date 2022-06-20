@@ -6,6 +6,8 @@ import Button from "react-bootstrap/Button";
 import { Container, Navbar, Nav } from "react-bootstrap";
 import axios from "axios";
 
+
+
 export function LoginView(props) {
   const [ username, setUsername ] = useState('');
   const [ password, setPassword ] = useState('');
@@ -34,56 +36,45 @@ const validate = () => {
     return isReq;
 }
 
-// const handleSubmit = (e) => {
-//   e.preventDefault();
-//   const isReq = validate();
-//   if(isReq) {
-//     /* Send request to the server for authentication */
-//     axios.post('https://cfmyflix.herokuapp.com/login', {
-//         Username: username,
-//         Password: password
-//     })
-//     .then(response =>{
-//         const data = response.data;
-//         props.onLoggedIn(data);
-//     })
-//     .catch(e => {
-//       console.log('no such user')
-//     });
-//   }
-// };
-
-
 const handleSubmit = (e) => {
   e.preventDefault();
-  /* Send a request to the server for authentication */
-  axios.post('https://cfmyflix.herokuapp.com/login', {
-    Username: username,
-    Password: password
-  })
-  .then(response => {
-    const data = response.data;
-    props.onLoggedIn(data);
-  })
-  .catch(e => {
-    console.log('no such user')
-  });
+  const isReq = validate();
+  if(isReq) {
+    /* Send request to the server for authentication */
+    axios.post('https://cfmyflix.herokuapp.com/login', {
+        Username: username,
+        Password: password
+    })
+    .then(response =>{
+        const data = response.data;
+        props.onLoggedIn(data);
+    })
+    .catch(e => {
+      console.log('no such user')
+    });
+  }
 };
+
+
+// const handleSubmit = (e) => {
+//   e.preventDefault();
+//   /* Send a request to the server for authentication */
+//   axios.post('https://cfmyflix.herokuapp.com/login', {
+//     Username: username,
+//     Password: password
+//   })
+//   .then(response => {
+//     const data = response.data;
+//     props.onLoggedIn(data);
+//   })
+//   .catch(e => {
+//     console.log('no such user')
+//   });
+// };
 
   return (
     <Container className="main">
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-        <Navbar.Brand href="#home">myFlix!</Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse bg="dark" id="responsive-navbar-nav">
-          <Nav className="me-auto"></Nav>
-          <Nav>
-            <Nav.Link eventKey={2} href="#memes">
-              Register
-            </Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar>
+      
     <Form>
       <Form.Group controlId="formUsername">
         <Form.Label>Username:</Form.Label>

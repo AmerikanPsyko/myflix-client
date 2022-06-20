@@ -10,8 +10,8 @@ import { MovieView } from "../movie-view/movie-view";
 import { Nav, Navbar } from "react-bootstrap";
 import { GenreView } from "../genre-view/genre-view";
 import { DirectorView } from "../director-view/director-view";
-
-// import { Navbar } from "../nav/navbar";
+import { NavbarView } from "../nav/navbar";
+import { RegistrationView } from "../reg-view/reg-view";
 
 import { RegistrationView } from "../reg-view/reg-view";
 import Row from "react-bootstrap/Row";
@@ -117,6 +117,7 @@ export class MainView extends React.Component {
 
     return (
       <Router>
+        <NavbarView user={user} />
         <div className="main-view">
           <Route
             exact
@@ -135,6 +136,18 @@ export class MainView extends React.Component {
                   <MovieCard movie={m} />
                 </Col>
               ));
+            }}
+          />
+
+          <Route
+            path="/register"
+            render={() => {
+              if (user) return <Redirect to="/" />;
+              return (
+                <Col>
+                  <RegistrationView />
+                </Col>
+              );
             }}
           />
 

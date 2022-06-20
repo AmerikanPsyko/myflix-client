@@ -1,8 +1,7 @@
 import React from "react";
-
+import './navbar.scss';
 import { Navbar, Container, Nav, Button, Offcanvas, NavDropdown, Form, FormControl } from 'react-bootstrap';
 import { Link } from "react-router-dom";
-
 
 export function NavbarView({ user }) {
 

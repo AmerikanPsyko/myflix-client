@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import propTypes from 'prop-types';
-import './reg-view.scss';
+import PropTypes from 'prop-types';
+import './regview.scss';
 import { Form, Button, Card, CardGroup, Container, Col, Row } from 'react-bootstrap';
 import axios from 'axios';
 
