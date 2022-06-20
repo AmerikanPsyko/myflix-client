@@ -34,23 +34,40 @@ const validate = () => {
     return isReq;
 }
 
+// const handleSubmit = (e) => {
+//   e.preventDefault();
+//   const isReq = validate();
+//   if(isReq) {
+//     /* Send request to the server for authentication */
+//     axios.post('https://cfmyflix.herokuapp.com/login', {
+//         Username: username,
+//         Password: password
+//     })
+//     .then(response =>{
+//         const data = response.data;
+//         props.onLoggedIn(data);
+//     })
+//     .catch(e => {
+//       console.log('no such user')
+//     });
+//   }
+// };
+
+
 const handleSubmit = (e) => {
   e.preventDefault();
-  const isReq = validate();
-  if(isReq) {
-    /* Send request to the server for authentication */
-    axios.post('https://cfmyflix.herokuapp.com/login', {
-        Username: username,
-        Password: password
-    })
-    .then(response =>{
-        const data = response.data;
-        props.onLoggedIn(data);
-    })
-    .catch(e => {
-      console.log('no such user')
-    });
-  }
+  /* Send a request to the server for authentication */
+  axios.post('YOUR_API_URL/login', {
+    Username: username,
+    Password: password
+  })
+  .then(response => {
+    const data = response.data;
+    props.onLoggedIn(data);
+  })
+  .catch(e => {
+    console.log('no such user')
+  });
 };
 
   return (
