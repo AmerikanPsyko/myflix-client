@@ -25358,7 +25358,7 @@ class MainView extends _reactDefault.default.Component {
                 className: "main-view",
                 children: [
                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV(Route, {
-                        // exact
+                        exact: true,
                         path: "/",
                         render: ()=>{
                             if (!user1) return /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_colDefault.default, {

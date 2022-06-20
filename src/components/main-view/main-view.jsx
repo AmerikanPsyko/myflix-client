@@ -108,7 +108,7 @@ export class MainView extends React.Component {
       <Router>
         <div className="main-view">
           <Route
-            // exact
+            exact
             path="/"
             render={() => {
               if (!user)
