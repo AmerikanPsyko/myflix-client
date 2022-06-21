@@ -25,6 +25,7 @@
 
 .card-body {
   background-color: gray;
+  align-items: flex-start;
 }
 
 .movie-title, .movie-description {
@@ -66,6 +67,10 @@ button {
 }
 
 
+
+.h2-fav, .h5-add, .h1-head {
+  color: #fff;
+}
 
 .my-flix {
   color: #4682b4;

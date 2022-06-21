@@ -74,7 +74,20 @@ const handleSubmit = (e) => {
 
   return (
     <Container className="main">
-      
+      <Navbar bg="light" expand="lg">
+  <Container>
+    <Navbar.Brand href="#home">MyFlix!</Navbar.Brand>
+    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+    <Navbar.Collapse id="basic-navbar-nav">
+      <Nav className="me-auto">
+        <Nav.Link href="/register">Register Here</Nav.Link>
+        
+        
+        
+      </Nav>
+    </Navbar.Collapse>
+  </Container>
+</Navbar>
     <Form>
       <Form.Group controlId="formUsername">
         <Form.Label>Username:</Form.Label>

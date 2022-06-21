@@ -19,6 +19,7 @@ import Col from "react-bootstrap/Col";
 import { Routes } from "react-router-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Route } from "react-router-dom";
+import { ProfileView } from "../Profile/profile-view";
 
 export class MainView extends React.Component {
   constructor() {
@@ -139,7 +140,7 @@ export class MainView extends React.Component {
             }}
           />
 
-          <Route
+          {/* <Route
             path="/register"
             render={() => {
               if (user) return <Redirect to="/" />;
@@ -149,7 +150,7 @@ export class MainView extends React.Component {
                 </Col>
               );
             }}
-          />
+          /> */}
 
           <Route
             path="/movies/:movieId"
@@ -220,12 +221,12 @@ export class MainView extends React.Component {
             }}
           />
 
-          {/* <Route path={`/users/${user}`} render={({ match, history }) => {
+          <Route path={`/users/${user}`} render={({ match, history }) => {
             if (!user) return <Redirect to="/" />
             return <Col>
               <ProfileView user={user} history={history} movies={movies} onBackClick={() => history.goBack()} />
             </Col>
-          }} /> */}
+          }} />
         </div>
       </Router>
     );
