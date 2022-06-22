@@ -3,23 +3,20 @@ import axios from "axios";
 import "./main-view.scss";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import PropTypes from 'prop-types';
 
+// import { Routes } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
+import { Route } from "react-router-dom";
+import { ProfileView } from "../Profile/profile-view";
 import { LoginView } from "../login-view/login-view";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
-// import { Nav, Navbar } from "react-bootstrap";
 import { GenreView } from "../genre-view/genre-view";
 import { DirectorView } from "../director-view/director-view";
 import { NavbarView } from "../nav/navbar";
 import { RegistrationView } from "../reg-view/reg-view";
 
-import { RegistrationView } from "../reg-view/reg-view";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-// import { Routes } from "react-router-dom";
-import { BrowserRouter as Router } from "react-router-dom";
-import { Route } from "react-router-dom";
-import { ProfileView } from "../Profile/profile-view";
 
 export class MainView extends React.Component {
   constructor() {
@@ -53,22 +50,6 @@ export class MainView extends React.Component {
     });
   }
 
-  /*When a movie is clicked, this function is invoked and updates the state of the `selectedMovie` *property to that movie*/
-
-  setSelectedMovie(movie) {
-    this.setState({
-      selectedMovie: movie,
-    });
-  }
-
-  /* When a user successfully logs in, this function updates the `user` property in state to that *particular user*/
-
-  // onLoggedIn(user) {
-  //   this.setState({
-  //     user,
-  //   });
-  // }
-
   onLoggedIn(authData) {
     console.log(authData);
     this.setState({
@@ -79,6 +60,15 @@ export class MainView extends React.Component {
     localStorage.setItem("user", authData.user.Username);
     this.getMovies(authData.token);
   }
+  /*When a movie is clicked, this function is invoked and updates the state of the `selectedMovie` *property to that movie*/
+
+  setSelectedMovie(movie) {
+    this.setState({
+      selectedMovie: movie,
+    });
+  }
+
+  /* When a user successfully logs in, this function updates the `user` property in state to that *particular user*/
 
   getMovies(token) {
     axios
@@ -119,6 +109,7 @@ export class MainView extends React.Component {
     return (
       <Router>
         <NavbarView user={user} />
+       
         <div className="main-view">
           <Route
             exact
@@ -145,7 +136,7 @@ export class MainView extends React.Component {
             render={() => {
               if (user) return <Redirect to="/" />;
               return (
-                <Col>
+                <Col lg={8} md={8}>
                   <RegistrationView />
                 </Col>
               );
@@ -221,13 +212,25 @@ export class MainView extends React.Component {
             }}
           />
 
-          <Route path={`/users/${user}`} render={({ match, history }) => {
-            if (!user) return <Redirect to="/" />
-            return <Col>
-              <ProfileView user={user} history={history} movies={movies} onBackClick={() => history.goBack()} />
-            </Col>
-          }} />
+          <Route
+            path={`/users/${user}`}
+            render={({ match, history }) => {
+              if (!user) return <Redirect to="/" />;
+              return (
+                <Col>
+                  <ProfileView
+                    user={user}
+                    history={history}
+                    movies={movies}
+                    onBackClick={() => history.goBack()}
+                  />
+                </Col>
+              );
+            }}
+          />
         </div>
+        
+      
       </Router>
     );
   }
