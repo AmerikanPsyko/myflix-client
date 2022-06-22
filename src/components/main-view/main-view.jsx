@@ -7,7 +7,7 @@ import Col from "react-bootstrap/Col";
 import { LoginView } from "../login-view/login-view";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
-import { Nav, Navbar } from "react-bootstrap";
+// import { Nav, Navbar } from "react-bootstrap";
 import { GenreView } from "../genre-view/genre-view";
 import { DirectorView } from "../director-view/director-view";
 import { NavbarView } from "../nav/navbar";
@@ -16,7 +16,7 @@ import { RegistrationView } from "../reg-view/reg-view";
 import { RegistrationView } from "../reg-view/reg-view";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { Routes } from "react-router-dom";
+// import { Routes } from "react-router-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Route } from "react-router-dom";
 import { ProfileView } from "../Profile/profile-view";
@@ -140,7 +140,7 @@ export class MainView extends React.Component {
             }}
           />
 
-          {/* <Route
+          <Route
             path="/register"
             render={() => {
               if (user) return <Redirect to="/" />;
@@ -150,7 +150,7 @@ export class MainView extends React.Component {
                 </Col>
               );
             }}
-          /> */}
+          />
 
           <Route
             path="/movies/:movieId"

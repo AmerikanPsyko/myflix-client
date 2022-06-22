@@ -71,7 +71,7 @@ export function RegistrationView(props) {
           <CardGroup>
             <Card>
               <Card.Body>
-                <Card.Title>Create an account for free</Card.Title>
+                <Card.Title>Create an account</Card.Title>
                 <Form>
                   <Form.Group className="mb-3">
                     <Form.Label>Username:</Form.Label>
@@ -101,7 +101,7 @@ export function RegistrationView(props) {
                   </Form.Group>
 
                   <Form.Group className="mb-3">
-                    <Form.Label>Date of Birth:</Form.Label>
+                    <Form.Label>Birthday:</Form.Label>
                     <Form.Control
                       type='date'
                       value={birthday}
