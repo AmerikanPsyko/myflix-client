@@ -31,62 +31,14 @@ export class MovieView extends React.Component {
     });
   }
 
-  // Add Favourite movie 
-  addFavMovie = () => {
-    let token = localStorage.getItem('token');
-    let user = localStorage.getItem("user");
-    let userFavMovies = this.state.FavouriteMovies;
-    let isFav = userFavMovies.includes(this.props.movie._id);
-    if (!isFav) {
-      axios.post(`https://cfmyflix.herokuapp.com/users/${user}/movies/${this.props.movie._id}`, {},
-        {
-          headers: {
-            Authorization: `Bearer ${token}`
-          }
-        }).then((response) => {
-          console.log(response.data);
-          alert(
-            `${this.props.movie.Title} has been added to your list of movies`
-          );
-          window.open(`/movies/${this.props.movie._id}`, "_self");
-        })
-        .catch(e => {
-          console.log('Error')
-        });
-    } else if (isFav) {
-      alert(
-        `${this.props.movie.Title} is already present in your list of movies`
-      );
-    }
-  }
-
-  // Delete a movie from Favourite movies 
-  removeFavMovie = () => {
-    let token = localStorage.getItem('token');
-    let user = localStorage.getItem("user");
-    axios.delete(`https://cfmyflix.herokuapp.com/users/${user}/movies/${this.props.movie._id}`,
-      {
-        headers: { Authorization: `Bearer ${token}` },
-      }).then((response) => {
-        console.log(response.data);
-        alert(
-          `${this.props.movie.Title} has been removed from your list of movies`
-        );
-        window.open(`/movies/${this.props.movie._id}`, "_self");
-      })
-      .catch(e => {
-        console.log('Error')
-      });
-  }
+  
 
 
 
 
 render() {
   const { movie, onBackClick } = this.props;
-  // const { FavouriteMovies, username, password, email, birthday } = this.state;
-  // let userFavMovies = this.state.FavouriteMovies;
-  // let isFav = userFavMovies.includes(this.props.movie._id);
+  ;
 
   return (
 
@@ -113,12 +65,7 @@ render() {
               <Card.Text className="text-style">{movie.Description}</Card.Text>
               <Button variant="outline-warning" onClick={() => { onBackClick() }}>Back</Button>
 
-              {!isFav && (
-                <Button className="add-list__button" variant="warning" onClick={this.addFavMovie}>Add to your list</Button>
-              )}
-              {isFav && (
-                <Button className="add-list__button" variant="warning" onClick={this.removeFavMovie}>Remove from your list</Button>
-              )}
+             
             </Card.Body>
           </Card>
         </Col>

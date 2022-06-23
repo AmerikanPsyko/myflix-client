@@ -45,7 +45,7 @@ export function ProfileView(props) {
 
   return (
     <Container id="profile-form">
-      <Row><h4>Your profile</h4></Row>
+      <Row><h4 className='h4-title'>Your profile</h4></Row>
       <Row>
         <Col className="label">Username:</Col>
         <Col className="value">{user.Username}</Col>
@@ -71,7 +71,7 @@ export function ProfileView(props) {
           token={token}/>
         </Row>
         <UpdateView user={user}/>
-        <Button className="d-block mt-5" variant="danger" onClick={handleDelete}>Delete profile</Button>
+        <Button className="delete-button d-block mt-5" variant="danger" onClick={handleDelete}>Delete profile</Button>
     </Container>
   )
 }

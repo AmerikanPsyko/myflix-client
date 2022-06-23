@@ -79,8 +79,12 @@ button {
 
 
 
-.h2-fav, .h5-add, .h1-head {
+.h2-fav, .h4-title, .label, * {
   color: #fff;
+}
+
+.delete-button {
+  padding-bottom: 10px;
 }
 
 .my-flix {

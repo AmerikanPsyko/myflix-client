@@ -50,7 +50,7 @@ export function UpdateView(props) {
     const isReq = validate();
     if (isReq) {
       const token = localStorage.getItem('token');
-      axios.put(`https://movime-api.herokuapp.com/users/${user.Username}`, {
+      axios.put(`https://cfmyflix.herokuapp.com/users/${user.Username}`, {
         Username: username,
         Password: password,
         Email: email,
