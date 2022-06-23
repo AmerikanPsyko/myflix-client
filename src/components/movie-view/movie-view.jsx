@@ -4,11 +4,22 @@ import './movie-view.scss';
 import { Card, Col, Container, Row, Button } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import axios from 'axios';
-// /users/:Username/movies/:MovieID
+
 
 
 
 export class MovieView extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: null,
+      password: null,
+      email: null,
+      birthday: null,
+      FavouriteMovies: [],
+    };
+  }
 
   keypressCallback(event) {
     console.log(event.key);
@@ -20,38 +31,55 @@ export class MovieView extends React.Component {
     });
   }
 
-  
+  // Add Favourite movie 
+  addFavMovie = () => {
+    let token = localStorage.getItem('token');
+    let user = localStorage.getItem("user");
+    let userFavMovies = this.state.FavouriteMovies;
+    let isFav = userFavMovies.includes(this.props.movie._id);
+    if (!isFav) {
+      axios.post(`https://cfmyflix.herokuapp.com/users/${user}/movies/${this.props.movie._id}`, {},
+        {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        }).then((response) => {
+          console.log(response.data);
+          alert(
+            `${this.props.movie.Title} has been added to your list of movies`
+          );
+          window.open(`/movies/${this.props.movie._id}`, "_self");
+        })
+        .catch(e => {
+          console.log('Error')
+        });
+    } else if (isFav) {
+      alert(
+        `${this.props.movie.Title} is already present in your list of movies`
+      );
+    }
+  }
 
-//   render() {
-//     const { movie, onBackClick } = this.props;
+  // Delete a movie from Favourite movies 
+  removeFavMovie = () => {
+    let token = localStorage.getItem('token');
+    let user = localStorage.getItem("user");
+    axios.delete(`https://cfmyflix.herokuapp.com/users/${user}/movies/${this.props.movie._id}`,
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      }).then((response) => {
+        console.log(response.data);
+        alert(
+          `${this.props.movie.Title} has been removed from your list of movies`
+        );
+        window.open(`/movies/${this.props.movie._id}`, "_self");
+      })
+      .catch(e => {
+        console.log('Error')
+      });
+  }
 
-//     return (
-      
-      
-   
 
-
-//       <div className="movie-view">
-//         <div className="movie-poster">
-//           <img src={movie.ImageURL} />
-//         </div>
-//         <div className="movie-title">
-//           <span className="label">Title: </span>
-//           <span className="value">{movie.Title}</span>
-//         </div>
-//         <div className="movie-description">
-//           <span className="label">Description: </span>
-//           <span className="value">{movie.Description}</span>
-//         </div>
-//         <button onClick={() => { onBackClick(null); }}>Back</button>
-
-//       </div>
-      
-//     );
-
-    
-//   }
-// }
 
 
 render() {
@@ -85,12 +113,12 @@ render() {
               <Card.Text className="text-style">{movie.Description}</Card.Text>
               <Button variant="outline-warning" onClick={() => { onBackClick() }}>Back</Button>
 
-              {/* {!isFav && (
+              {!isFav && (
                 <Button className="add-list__button" variant="warning" onClick={this.addFavMovie}>Add to your list</Button>
               )}
               {isFav && (
                 <Button className="add-list__button" variant="warning" onClick={this.removeFavMovie}>Remove from your list</Button>
-              )} */}
+              )}
             </Card.Body>
           </Card>
         </Col>
