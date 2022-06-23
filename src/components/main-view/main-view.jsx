@@ -4,6 +4,7 @@ import "./main-view.scss";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import PropTypes from 'prop-types';
+import { Navbar, Nav } from 'react-bootstrap';
 
 // import { Routes } from "react-router-dom";
 import { BrowserRouter as Router } from "react-router-dom";

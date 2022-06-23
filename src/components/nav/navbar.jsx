@@ -23,7 +23,7 @@ export function NavbarView({ user }) {
 
   return (
     <Container>
-      <Navbar bg="light" expand="lg">
+      <Navbar bg="dark" expand="lg">
         <Container className="navbar-container">
           <Navbar.Brand as={Link} to={"/"} href="#home">MyFlix-App</Navbar.Brand>
 

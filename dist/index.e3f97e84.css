@@ -44,6 +44,10 @@
   margin: 20px;
 }
 
+.title-style {
+  background-color: #000;
+}
+
 register {
   align-items: flex-end;
 }
@@ -79,8 +83,13 @@ button {
 
 
 
-.h2-fav, .h4-title, .label, * {
+.h2-fav, .h4-title, .label {
   color: #fff;
+}
+
+* {
+  color: #fff;
+  background-color: #a9a9a9;
 }
 
 .delete-button {

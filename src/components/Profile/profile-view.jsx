@@ -16,20 +16,39 @@ export function ProfileView(props) {
   const currentUser = localStorage.getItem('user');
   const token = localStorage.getItem('token');
 
+  // const getUser = () => {
+  //   axios.get(`https://cfmyflix.herokuapp.com/users/${currentUser}`, {
+  //     headers: { Authorization: `Bearer ${token}`}
+  //   })
+  //   .then(response => {
+  //     setUser(response.data);
+  //     setFavouriteMovies(response.data.FavouriteMovies)
+  //   })
+  //   .catch(error => console.error(error))
+  // }
+
+  // useEffect(() => {
+  //   getUser();
+  // }, [])
+
   const getUser = () => {
-    axios.get(`https://cfmyflix.herokuapp.com/users/${currentUser}`, {
-      headers: { Authorization: `Bearer ${token}`}
+    let token = localStorage.getItem('token');
+    let user = localStorage.getItem("user");
+    axios.get(`https://cfmyflix.herokuapp.com/users/${user}`, {
+      headers: { Authorization: `Bearer ${token}` }
     })
-    .then(response => {
-      setUser(response.data);
-      setFavouriteMovies(response.data.FavouriteMovies)
-    })
-    .catch(error => console.error(error))
+      .then((response) => {
+        setUsername(response.data.Username)
+        setEmail(response.data.Email)
+        setFavouriteMovies(response.data.FavouriteMovies)
+        console.log(response.data)
+      })
+      .catch(e => {
+        console.log('Error')
+      });
   }
 
-  useEffect(() => {
-    getUser();
-  }, [])
+  getUser();
 
   const handleDelete = () => {
     axios.delete(`https://cfmyflix.herokuapp.com/users/${currentUser}`, {
@@ -62,7 +81,7 @@ export function ProfileView(props) {
         <Col className="label">Birthday:</Col>
         <Col className="value">{user.Birthday}</Col>
         </Row>
-        <Row className="mt-5"><h4>Your favourite movies</h4></Row>
+        <Row className="mt-5"><h4>Favorites:</h4></Row>
         <Row className="mt-3">
           <FavouriteMoviesView 
           movies={movies} 
