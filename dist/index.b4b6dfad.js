@@ -42710,48 +42710,49 @@ var _profileViewScss = require("./profile-view.scss");
 var _s = $RefreshSig$();
 function ProfileView(props) {
     _s();
-    const [user1, setUser] = _react.useState(props.user);
+    const [user, setUser] = _react.useState(props.user);
     const [movies, setMovies] = _react.useState(props.movies);
     const [favouriteMovies, setFavouriteMovies] = _react.useState([]);
     const currentUser = localStorage.getItem('user');
-    const token1 = localStorage.getItem('token');
-    // const getUser = () => {
-    //   axios.get(`https://cfmyflix.herokuapp.com/users/${currentUser}`, {
-    //     headers: { Authorization: `Bearer ${token}`}
-    //   })
-    //   .then(response => {
-    //     setUser(response.data);
-    //     setFavouriteMovies(response.data.FavouriteMovies)
-    //   })
-    //   .catch(error => console.error(error))
-    // }
-    // useEffect(() => {
-    //   getUser();
-    // }, [])
+    const token = localStorage.getItem('token');
     const getUser = ()=>{
-        let token = localStorage.getItem('token');
-        let user = localStorage.getItem("user");
-        _axiosDefault.default.get(`https://cfmyflix.herokuapp.com/users/${user}`, {
+        _axiosDefault.default.get(`https://cfmyflix.herokuapp.com/users/${currentUser}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
         }).then((response)=>{
-            setUsername(response.data.Username);
-            setEmail(response.data.Email);
+            setUser(response.data);
             setFavouriteMovies(response.data.FavouriteMovies);
-            console.log(response.data);
-        }).catch((e)=>{
-            console.log('Error');
-        });
+        }).catch((error)=>console.error(error)
+        );
     };
+    _react.useEffect(()=>{
+        getUser();
+    }, []);
+    // const getUser = () => {
+    //   let token = localStorage.getItem('token');
+    //   let user = localStorage.getItem("user");
+    //   axios.get(`https://cfmyflix.herokuapp.com/users/${user}`, {
+    //     headers: { Authorization: `Bearer ${token}` }
+    //   })
+    //     .then((response) => {
+    //       setUsername(response.data.Username)
+    //       setEmail(response.data.Email)
+    //       setFavouriteMovies(response.data.FavouriteMovies)
+    //       console.log(response.data)
+    //     })
+    //     .catch(e => {
+    //       console.log('Error')
+    //     });
+    // }
     getUser();
     const handleDelete = ()=>{
         _axiosDefault.default.delete(`https://cfmyflix.herokuapp.com/users/${currentUser}`, {
             headers: {
-                Authorization: `Bearer ${token1}`
+                Authorization: `Bearer ${token}`
             }
         }).then(()=>{
-            alert(`The account ${user1.Username} was successfully deleted.`);
+            alert(`The account ${user.Username} was successfully deleted.`);
             localStorage.clear();
             window.open('/register', '_self');
         }).catch((error)=>console.error(error)
@@ -42786,7 +42787,7 @@ function ProfileView(props) {
                     }, this),
                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Col, {
                         className: "value",
-                        children: user1.Username
+                        children: user.Username
                     }, void 0, false, {
                         fileName: "src/components/Profile/profile-view.jsx",
                         lineNumber: 70,
@@ -42836,7 +42837,7 @@ function ProfileView(props) {
                     }, this),
                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Col, {
                         className: "value",
-                        children: user1.Email
+                        children: user.Email
                     }, void 0, false, {
                         fileName: "src/components/Profile/profile-view.jsx",
                         lineNumber: 78,
@@ -42861,7 +42862,7 @@ function ProfileView(props) {
                     }, this),
                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Col, {
                         className: "value",
-                        children: user1.Birthday
+                        children: user.Birthday
                     }, void 0, false, {
                         fileName: "src/components/Profile/profile-view.jsx",
                         lineNumber: 82,
@@ -42893,7 +42894,7 @@ function ProfileView(props) {
                     movies: movies,
                     favouriteMovies: favouriteMovies,
                     currentUser: currentUser,
-                    token: token1
+                    token: token
                 }, void 0, false, {
                     fileName: "src/components/Profile/profile-view.jsx",
                     lineNumber: 86,
@@ -42905,7 +42906,7 @@ function ProfileView(props) {
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_updateView.UpdateView, {
-                user: user1
+                user: user
             }, void 0, false, {
                 fileName: "src/components/Profile/profile-view.jsx",
                 lineNumber: 92,
@@ -42928,7 +42929,7 @@ function ProfileView(props) {
         columnNumber: 5
     }, this);
 }
-_s(ProfileView, "gWq2vdcN/MH1ylwqTYV631k8Y2A=");
+_s(ProfileView, "/eAl+JSibbHvx/NASoOA1araf8s=");
 _c = ProfileView;
 var _c;
 $RefreshReg$(_c, "ProfileView");

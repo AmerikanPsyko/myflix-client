@@ -16,37 +16,37 @@ export function ProfileView(props) {
   const currentUser = localStorage.getItem('user');
   const token = localStorage.getItem('token');
 
-  // const getUser = () => {
-  //   axios.get(`https://cfmyflix.herokuapp.com/users/${currentUser}`, {
-  //     headers: { Authorization: `Bearer ${token}`}
-  //   })
-  //   .then(response => {
-  //     setUser(response.data);
-  //     setFavouriteMovies(response.data.FavouriteMovies)
-  //   })
-  //   .catch(error => console.error(error))
-  // }
-
-  // useEffect(() => {
-  //   getUser();
-  // }, [])
-
   const getUser = () => {
-    let token = localStorage.getItem('token');
-    let user = localStorage.getItem("user");
-    axios.get(`https://cfmyflix.herokuapp.com/users/${user}`, {
-      headers: { Authorization: `Bearer ${token}` }
+    axios.get(`https://cfmyflix.herokuapp.com/users/${currentUser}`, {
+      headers: { Authorization: `Bearer ${token}`}
     })
-      .then((response) => {
-        setUsername(response.data.Username)
-        setEmail(response.data.Email)
-        setFavouriteMovies(response.data.FavouriteMovies)
-        console.log(response.data)
-      })
-      .catch(e => {
-        console.log('Error')
-      });
+    .then(response => {
+      setUser(response.data);
+      setFavouriteMovies(response.data.FavouriteMovies)
+    })
+    .catch(error => console.error(error))
   }
+
+  useEffect(() => {
+    getUser();
+  }, [])
+
+  // const getUser = () => {
+  //   let token = localStorage.getItem('token');
+  //   let user = localStorage.getItem("user");
+  //   axios.get(`https://cfmyflix.herokuapp.com/users/${user}`, {
+  //     headers: { Authorization: `Bearer ${token}` }
+  //   })
+  //     .then((response) => {
+  //       setUsername(response.data.Username)
+  //       setEmail(response.data.Email)
+  //       setFavouriteMovies(response.data.FavouriteMovies)
+  //       console.log(response.data)
+  //     })
+  //     .catch(e => {
+  //       console.log('Error')
+  //     });
+  // }
 
   getUser();
 
