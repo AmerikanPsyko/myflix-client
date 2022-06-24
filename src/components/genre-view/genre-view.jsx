@@ -1,6 +1,5 @@
-
 import React from 'react';
-// import './genre-view.scss'
+import './genre-view.scss'
 import PropTypes from 'prop-types';
 import { Card, Col, Container, Row, Button } from 'react-bootstrap';
 import { Link } from "react-router-dom";
@@ -17,7 +16,7 @@ export class GenreView extends React.Component {
         <Card.Header>{genre.Name}</Card.Header>
         <Card.Body>
           <Card.Text>{genre.Description}</Card.Text>
-          <Button variant="info" onClick={() => { onBackClick() }}>Back</Button>
+          <Button variant="warning" onClick={() => { onBackClick() }}>Back</Button>
         </Card.Body>
       </Card>
     )

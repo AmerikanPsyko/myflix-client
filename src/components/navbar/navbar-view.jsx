@@ -1,5 +1,5 @@
 import React from "react";
-import './navbar.scss';
+import './navbar-view.scss';
 import { Navbar, Container, Nav, Button, Offcanvas, NavDropdown, Form, FormControl } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 
@@ -23,7 +23,7 @@ export function NavbarView({ user }) {
 
   return (
     <Container>
-      <Navbar bg="dark" expand="lg">
+      <Navbar bg="light" expand="lg">
         <Container className="navbar-container">
           <Navbar.Brand as={Link} to={"/"} href="#home">MyFlix-App</Navbar.Brand>
 
@@ -46,7 +46,7 @@ export function NavbarView({ user }) {
             )}
 
             {!isAuth() && (
-              <Nav.Link as={Link} to={`/register`}>Register</Nav.Link>
+              <Nav.Link as={Link} to={`/register`}>Sign Up</Nav.Link>
             )}
 
 

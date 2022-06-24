@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-
-import './regview.scss';
+import './registration-view.scss';
 import { Form, Button, Card, CardGroup, Container, Col, Row } from 'react-bootstrap';
 import axios from 'axios';
 
@@ -72,7 +71,7 @@ export function RegistrationView(props) {
           <CardGroup>
             <Card>
               <Card.Body>
-                <Card.Title>Create an account</Card.Title>
+                <Card.Title>Create an account for free</Card.Title>
                 <Form>
                   <Form.Group className="mb-3">
                     <Form.Label>Username:</Form.Label>
@@ -102,7 +101,7 @@ export function RegistrationView(props) {
                   </Form.Group>
 
                   <Form.Group className="mb-3">
-                    <Form.Label>Birthday:</Form.Label>
+                    <Form.Label>Date of Birth:</Form.Label>
                     <Form.Control
                       type='date'
                       value={birthday}
