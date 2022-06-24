@@ -35,14 +35,14 @@
   color: #000;
 }
 
-.container-style {
-  padding-top: 50px;
-}
-
 
 
 .navbar-container, .navbar-elements__style {
   background-color: #fff;
+}
+
+.container-style {
+  padding-top: 50px;
 }
 
 .my-flix {
