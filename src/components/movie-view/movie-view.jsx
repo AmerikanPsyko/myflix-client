@@ -49,7 +49,7 @@ export class MovieView extends React.Component {
     let userFavMovies = this.state.FavouriteMovies;
     let isFav = userFavMovies.includes(this.props.movie._id);
     if (!isFav) {
-      axios.post(`https://cfmyflix.herokuapp.com/users/${user}/movies/${this.props.movie._id}`, {},
+      axios.put(`https://cfmyflix.herokuapp.com/users/${user}/movies/${this.props.movie._id}`, {},
         {
           headers: {
             Authorization: `Bearer ${token}`

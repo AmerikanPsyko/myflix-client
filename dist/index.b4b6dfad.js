@@ -38874,7 +38874,7 @@ class MovieView extends _reactDefault.default.Component {
         let user = localStorage.getItem("user");
         let userFavMovies = this.state.FavouriteMovies;
         let isFav = userFavMovies.includes(this.props.movie._id);
-        if (!isFav) _axiosDefault.default.post(`https://cfmyflix.herokuapp.com/users/${user}/movies/${this.props.movie._id}`, {}, {
+        if (!isFav) _axiosDefault.default.put(`https://cfmyflix.herokuapp.com/users/${user}/movies/${this.props.movie._id}`, {}, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
