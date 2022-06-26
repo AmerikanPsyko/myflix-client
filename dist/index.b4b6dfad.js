@@ -38928,7 +38928,7 @@ class MovieView extends _reactDefault.default.Component {
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card.Title, {
-                                    className: "title-style text-danger",
+                                    className: "title-style",
                                     children: movie.Title
                                 }, void 0, false, {
                                     fileName: "src/components/movie-view/movie-view.jsx",
@@ -38996,7 +38996,7 @@ class MovieView extends _reactDefault.default.Component {
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
-                                    variant: "outline-danger",
+                                    variant: "outline-warning",
                                     onClick: ()=>{
                                         onBackClick();
                                     },
@@ -39008,7 +39008,7 @@ class MovieView extends _reactDefault.default.Component {
                                 }, this),
                                 !isFav && /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
                                     className: "add-list__button",
-                                    variant: "danger",
+                                    variant: "warning",
                                     onClick: this.addFavMovie,
                                     children: "Add to your list"
                                 }, void 0, false, {
@@ -39018,7 +39018,7 @@ class MovieView extends _reactDefault.default.Component {
                                 }, this),
                                 isFav && /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
                                     className: "add-list__button",
-                                    variant: "danger",
+                                    variant: "warning",
                                     onClick: this.removeFavMovie,
                                     children: "Remove from your list"
                                 }, void 0, false, {
