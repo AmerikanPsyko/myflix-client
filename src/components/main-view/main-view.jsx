@@ -9,7 +9,7 @@ import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { DirectorView } from '../director-view/director-view';
 import { GenreView } from '../genre-view/genre-view';
-import { ProfileView } from '../Profile/profile-view';
+import { ProfileView } from '../profile-view/profile-view';
 import { Navbar, Nav } from 'react-bootstrap';
 
 class MainView extends React.Component {
