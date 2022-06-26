@@ -101,10 +101,10 @@ export class MovieView extends React.Component {
       <Container>
         <Row>
           <Col>
-            <Card className="movie-view__card" style={{ width: '40rem' }}>
+            <Card className="movie-view__card" style={{ width: '30rem' }}>
               <Card.Body>
                 <Card.Img className="movie-view__image" variant="top" src={movie.ImageURL} />
-                <Card.Title className="title-style">{movie.Title}</Card.Title>
+                <Card.Title className="title-style text-danger">{movie.Title}</Card.Title>
 
                 <Card.Text className="text-style">Genre: {movie.Genre.Name}
                   <Link to={`/genres/${movie.Genre.Name}`}>
@@ -119,13 +119,13 @@ export class MovieView extends React.Component {
                 </Card.Text>
 
                 <Card.Text className="text-style">{movie.Description}</Card.Text>
-                <Button variant="outline-warning" onClick={() => { onBackClick() }}>Back</Button>
+                <Button variant="outline-danger" onClick={() => { onBackClick() }}>Back</Button>
 
                 {!isFav && (
-                  <Button className="add-list__button" variant="warning" onClick={this.addFavMovie}>Add to your list</Button>
+                  <Button className="add-list__button" variant="danger" onClick={this.addFavMovie}>Add to your list</Button>
                 )}
                 {isFav && (
-                  <Button className="add-list__button" variant="warning" onClick={this.removeFavMovie}>Remove from your list</Button>
+                  <Button className="add-list__button" variant="danger" onClick={this.removeFavMovie}>Remove from your list</Button>
                 )}
               </Card.Body>
             </Card>

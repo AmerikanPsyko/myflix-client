@@ -7,13 +7,15 @@ import { Link } from 'react-router-dom';
 import { MovieCard } from '../movie-card/movie-card';
 
 
-export function ProfileView({ movies }) {
+export function ProfileView(movies) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const [birthday, setBirthday] = useState('');
   const [favouriteMovies, setFavouriteMovies] = useState([]);
   const [show, setShow] = useState(false); // setting the state for the deleteUser modal 
+  
+  const token = localStorage.getItem('token');
 
   useEffect(() => {
     getUser()
