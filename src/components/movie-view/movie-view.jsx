@@ -48,7 +48,7 @@ export class MovieView extends React.Component {
     let user = localStorage.getItem("user");
     let userFavMovies = this.state.FavouriteMovies;
     let isFav = movies.filter(m => {
-      return favouriteMoviesId.includes(m._id)
+      return favouriteMoviesId.includes(this.props.movie._id)
     })
     if (!isFav) {
       axios.post(`https://cfmyflix.herokuapp.com/users/${user}/movies/${this.props.movie._id}`,
