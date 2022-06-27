@@ -38996,7 +38996,7 @@ class MovieView extends _reactDefault.default.Component {
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
-                                    variant: "outline-warning",
+                                    variant: "outline-danger",
                                     onClick: ()=>{
                                         onBackClick();
                                     },
@@ -39008,7 +39008,7 @@ class MovieView extends _reactDefault.default.Component {
                                 }, this),
                                 !isFav && /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
                                     className: "add-list__button",
-                                    variant: "warning",
+                                    variant: "danger",
                                     onClick: this.addFavMovie,
                                     children: "Add to your list"
                                 }, void 0, false, {
@@ -39018,7 +39018,7 @@ class MovieView extends _reactDefault.default.Component {
                                 }, this),
                                 isFav && /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
                                     className: "add-list__button",
-                                    variant: "warning",
+                                    variant: "danger",
                                     onClick: this.removeFavMovie,
                                     children: "Remove from your list"
                                 }, void 0, false, {

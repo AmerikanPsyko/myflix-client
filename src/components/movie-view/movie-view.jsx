@@ -119,13 +119,13 @@ export class MovieView extends React.Component {
                 </Card.Text>
 
                 <Card.Text className="text-style">{movie.Description}</Card.Text>
-                <Button variant="outline-warning" onClick={() => { onBackClick() }}>Back</Button>
+                <Button variant="outline-danger" onClick={() => { onBackClick() }}>Back</Button>
 
                 {!isFav && (
-                  <Button className="add-list__button" variant="warning" onClick={this.addFavMovie}>Add to your list</Button>
+                  <Button className="add-list__button" variant="danger" onClick={this.addFavMovie}>Add to your list</Button>
                 )}
                 {isFav && (
-                  <Button className="add-list__button" variant="warning" onClick={this.removeFavMovie}>Remove from your list</Button>
+                  <Button className="add-list__button" variant="danger" onClick={this.removeFavMovie}>Remove from your list</Button>
                 )}
               </Card.Body>
             </Card>
