@@ -38825,142 +38825,6 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "MovieView", ()=>MovieView
 );
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
-// import React from 'react';
-// import PropTypes from 'prop-types';
-// import './movie-view.scss';
-// import { Card, Col, Container, Row, Button } from 'react-bootstrap';
-// import { Link } from "react-router-dom";
-// import axios from 'axios';
-// // /users/:Username/movies/:MovieID
-// export class MovieView extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       username: null,
-//       password: null,
-//       email: null,
-//       birthday: null,
-//       FavouriteMovies: [],
-//     };
-//   }
-//   getUser(token) {
-//     let user = localStorage.getItem("user");
-//     axios
-//       .get(`https://cfmyflix.herokuapp.com/users/${user}`, {
-//         headers: { Authorization: `Bearer ${token}` },
-//       })
-//       .then((response) => {
-//         //assign the result to the state
-//         this.setState({
-//           username: response.data.username,
-//           password: response.data.password,
-//           email: response.data.email,
-//           birthday: response.data.birthday,
-//           FavouriteMovies: response.data.FavouriteMovies,
-//         });
-//       })
-//       .catch((e) => console.log(e));
-//   }
-//   componentDidMount() {
-//     const accessToken = localStorage.getItem("token");
-//     this.getUser(accessToken);
-//   }
-//   // Add Favourite movie 
-//   addFavMovie = () => {
-//     let token = localStorage.getItem('token');
-//     let user = localStorage.getItem("user");
-//     let userFavMovies = this.state.FavouriteMovies;
-//     let isFav = userFavMovies.includes(this.props.movie._id);
-//     if (!isFav) {
-//       axios.put(`https://cfmyflix.herokuapp.com/users/${user}/movies/${this.props.movie._id}`, {},
-//         {
-//           headers: {
-//             Authorization: `Bearer ${token}`
-//           }
-//         }).then((response) => {
-//           console.log(response.data);
-//           alert(
-//             `${this.props.movie.Title} has been added to your list of movies`
-//           );
-//           window.open(`/movies/${this.props.movie._id}`, "_self");
-//         })
-//         .catch(e => {
-//           console.log('Error')
-//         });
-//     } else if (isFav) {
-//       alert(
-//         `${this.props.movie.Title} is already present in your list of movies`
-//       );
-//     }
-//   }
-//   // Delete a movie from Favourite movies 
-//   removeFavMovie = () => {
-//     let token = localStorage.getItem('token');
-//     let user = localStorage.getItem("user");
-//     axios.delete(`https://cfmyflix.herokuapp.com/users/${user}/movies/${this.props.movie._id}`,
-//       {
-//         headers: { Authorization: `Bearer ${token}` },
-//       }).then((response) => {
-//         console.log(response.data);
-//         alert(
-//           `${this.props.movie.Title} has been removed from your list of movies`
-//         );
-//         window.open(`/movies/${this.props.movie._id}`, "_self");
-//       })
-//       .catch(e => {
-//         console.log('Error')
-//       });
-//   }
-//   render() {
-//     const { movie, onBackClick } = this.props;
-//     const { FavouriteMovies, username, password, email, birthday } = this.state;
-//     let userFavMovies = this.state.FavouriteMovies;
-//     let isFav = userFavMovies.includes(this.props.movie._id);
-//     return (
-//       <Container>
-//         <Row>
-//           <Col>
-//             <Card className="movie-view__card" style={{ width: '30rem' }}>
-//               <Card.Body>
-//                 <Card.Img className="movie-view__image" variant="top" src={movie.ImageURL} />
-//                 <Card.Title className="title-style">{movie.Title}</Card.Title>
-//                 <Card.Text className="text-style">Genre: {movie.Genre.Name}
-//                   <Link to={`/genres/${movie.Genre.Name}`}>
-//                     <Button variant="link">more info</Button>
-//                   </Link>
-//                 </Card.Text>
-//                 <Card.Text className="text-style">Director: {movie.Director.Name}
-//                   <Link to={`/directors/${movie.Director.Name}`}>
-//                     <Button variant="link">more info</Button>
-//                   </Link>
-//                 </Card.Text>
-//                 <Card.Text className="text-style">{movie.Description}</Card.Text>
-//                 <Button variant="outline-danger" onClick={() => { onBackClick() }}>Back</Button>
-//                 {!isFav && (
-//                   <Button className="add-list__button" variant="danger" onClick={this.addFavMovie}>Add to your list</Button>
-//                 )}
-//                 {isFav && (
-//                   <Button className="add-list__button" variant="danger" onClick={this.removeFavMovie}>Remove from your list</Button>
-//                 )}
-//               </Card.Body>
-//             </Card>
-//           </Col>
-//         </Row>
-//       </Container>
-//     );
-//   }
-// }
-// MovieView.propTypes = {
-//   movie: PropTypes.shape({
-//     Title: PropTypes.string.isRequired,
-//     Description: PropTypes.string.isRequired,
-//     ImageURL: PropTypes.string.isRequired,
-//     Genre: PropTypes.shape({
-//       Name: PropTypes.string.isRequired
-//     })
-//   }).isRequired,
-//   onBackClick: PropTypes.func.isRequired
-// };
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _propTypes = require("prop-types");
@@ -39008,8 +38872,10 @@ class MovieView extends _reactDefault.default.Component {
         let token = localStorage.getItem('token');
         let user = localStorage.getItem("user");
         let userFavMovies = this.state.FavouriteMovies;
-        let isFav = userFavMovies.includes(this.props.movie._id);
-        if (!isFav) _axiosDefault.default.post(`https://cfmyflix.herokuapp.com/users/${user}/movies/${this.props.movie._id}`, {}, {
+        let isFav = movies.filter((m)=>{
+            return favouriteMoviesId.includes(m._id);
+        });
+        if (!isFav) _axiosDefault.default.post(`https://cfmyflix.herokuapp.com/users/${user}/movies/${this.props.movie._id}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -39059,7 +38925,7 @@ class MovieView extends _reactDefault.default.Component {
                                     src: movie.ImageURL
                                 }, void 0, false, {
                                     fileName: "src/components/movie-view/movie-view.jsx",
-                                    lineNumber: 257,
+                                    lineNumber: 108,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card.Title, {
@@ -39067,7 +38933,7 @@ class MovieView extends _reactDefault.default.Component {
                                     children: movie.Title
                                 }, void 0, false, {
                                     fileName: "src/components/movie-view/movie-view.jsx",
-                                    lineNumber: 258,
+                                    lineNumber: 109,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card.Text, {
@@ -39082,18 +38948,18 @@ class MovieView extends _reactDefault.default.Component {
                                                 children: "more info"
                                             }, void 0, false, {
                                                 fileName: "src/components/movie-view/movie-view.jsx",
-                                                lineNumber: 262,
+                                                lineNumber: 113,
                                                 columnNumber: 21
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "src/components/movie-view/movie-view.jsx",
-                                            lineNumber: 261,
+                                            lineNumber: 112,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/components/movie-view/movie-view.jsx",
-                                    lineNumber: 260,
+                                    lineNumber: 111,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card.Text, {
@@ -39108,18 +38974,18 @@ class MovieView extends _reactDefault.default.Component {
                                                 children: "more info"
                                             }, void 0, false, {
                                                 fileName: "src/components/movie-view/movie-view.jsx",
-                                                lineNumber: 268,
+                                                lineNumber: 119,
                                                 columnNumber: 21
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "src/components/movie-view/movie-view.jsx",
-                                            lineNumber: 267,
+                                            lineNumber: 118,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/components/movie-view/movie-view.jsx",
-                                    lineNumber: 266,
+                                    lineNumber: 117,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card.Text, {
@@ -39127,7 +38993,7 @@ class MovieView extends _reactDefault.default.Component {
                                     children: movie.Description
                                 }, void 0, false, {
                                     fileName: "src/components/movie-view/movie-view.jsx",
-                                    lineNumber: 272,
+                                    lineNumber: 123,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
@@ -39138,7 +39004,7 @@ class MovieView extends _reactDefault.default.Component {
                                     children: "Back"
                                 }, void 0, false, {
                                     fileName: "src/components/movie-view/movie-view.jsx",
-                                    lineNumber: 273,
+                                    lineNumber: 124,
                                     columnNumber: 17
                                 }, this),
                                 !isFav && /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
@@ -39148,7 +39014,7 @@ class MovieView extends _reactDefault.default.Component {
                                     children: "Add to your list"
                                 }, void 0, false, {
                                     fileName: "src/components/movie-view/movie-view.jsx",
-                                    lineNumber: 276,
+                                    lineNumber: 127,
                                     columnNumber: 19
                                 }, this),
                                 isFav && /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
@@ -39158,33 +39024,33 @@ class MovieView extends _reactDefault.default.Component {
                                     children: "Remove from your list"
                                 }, void 0, false, {
                                     fileName: "src/components/movie-view/movie-view.jsx",
-                                    lineNumber: 279,
+                                    lineNumber: 130,
                                     columnNumber: 19
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "src/components/movie-view/movie-view.jsx",
-                            lineNumber: 256,
+                            lineNumber: 107,
                             columnNumber: 15
                         }, this)
                     }, void 0, false, {
                         fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 255,
+                        lineNumber: 106,
                         columnNumber: 13
                     }, this)
                 }, void 0, false, {
                     fileName: "src/components/movie-view/movie-view.jsx",
-                    lineNumber: 254,
+                    lineNumber: 105,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "src/components/movie-view/movie-view.jsx",
-                lineNumber: 253,
+                lineNumber: 104,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "src/components/movie-view/movie-view.jsx",
-            lineNumber: 252,
+            lineNumber: 103,
             columnNumber: 7
         }, this);
     }
@@ -39193,7 +39059,7 @@ MovieView.propTypes = {
     movie: _propTypesDefault.default.shape({
         Title: _propTypesDefault.default.string.isRequired,
         Description: _propTypesDefault.default.string.isRequired,
-        ImagePath: _propTypesDefault.default.string.isRequired,
+        ImageURL: _propTypesDefault.default.string.isRequired,
         Genre: _propTypesDefault.default.shape({
             Name: _propTypesDefault.default.string.isRequired
         })
