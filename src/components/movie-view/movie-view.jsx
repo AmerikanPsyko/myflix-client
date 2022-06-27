@@ -1,13 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import './movie-view.scss';
-import { Card, Col, Container, Row, Button } from 'react-bootstrap';
+import React from "react";
+import PropTypes from "prop-types";
+import "./movie-view.scss";
+import { Card, Col, Container, Row, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import axios from 'axios';
-
+import axios from "axios";
 
 export class MovieView extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -38,16 +36,21 @@ export class MovieView extends React.Component {
       .catch((e) => console.log(e));
   }
   componentDidMount() {
-    const accessToken = localStorage.getItem("token");
-    this.getUser(accessToken);
+    let accessToken = localStorage.getItem('token');
+    if (accessToken !== null) {
+      this.setState({
+        user: localStorage.getItem('user')
+      });
+    }
   }
 
-  // Add Favourite movie 
+  
+  // Add a movie to favourite movies
   addFavMovie = () => {
     let token = localStorage.getItem('token');
     let user = localStorage.getItem("user");
     let userFavMovies = this.state.FavouriteMovies;
-    let isFav = movies.filter(m => {
+    let isFav = userFavMovies.filter(m => {
       return favouriteMoviesId.includes(this.props.movie._id)
     })
     if (!isFav) {
@@ -73,7 +76,7 @@ export class MovieView extends React.Component {
     }
   }
 
-  // Delete a movie from Favourite movies 
+  // Delete a movie from Favourite movies
   removeFavMovie = () => {
     let token = localStorage.getItem('token');
     let user = localStorage.getItem("user");
@@ -99,29 +102,44 @@ export class MovieView extends React.Component {
     let isFav = userFavMovies.includes(this.props.movie._id);
 
     return (
-
       <Container>
         <Row>
           <Col>
-            <Card className="movie-view__card" style={{ width: '40rem' }}>
+            <Card className="movie-view__card" style={{ width: "40rem" }}>
               <Card.Body>
-                <Card.Img className="movie-view__image" variant="top" src={movie.ImageURL} />
+                <Card.Img
+                  className="movie-view__image"
+                  variant="top"
+                  src={movie.ImageURL}
+                />
                 <Card.Title className="title-style">{movie.Title}</Card.Title>
 
-                <Card.Text className="text-style">Genre: {movie.Genre.Name}
+                <Card.Text className="text-style">
+                  Genre: {movie.Genre.Name}
                   <Link to={`/genres/${movie.Genre.Name}`}>
                     <Button variant="link">more info</Button>
                   </Link>
                 </Card.Text>
 
-                <Card.Text className="text-style">Director: {movie.Director.Name}
+                <Card.Text className="text-style">
+                  Director: {movie.Director.Name}
                   <Link to={`/directors/${movie.Director.Name}`}>
                     <Button variant="link">more info</Button>
                   </Link>
                 </Card.Text>
 
-                <Card.Text className="text-style">{movie.Description}</Card.Text>
-                <Button variant="outline-danger" onClick={() => { onBackClick() }}>Back</Button>
+                <Card.Text className="text-style">
+                  {movie.Description}
+                </Card.Text>
+                <Button
+                  variant="outline-danger"
+                  onClick={() => {
+                    onBackClick();
+                  }}
+                >
+                  Back
+                </Button>
+                
 
                 {!isFav && (
                   <Button className="add-list__button" variant="danger" onClick={this.addFavMovie}>Add to your list</Button>
@@ -144,8 +162,8 @@ MovieView.propTypes = {
     Description: PropTypes.string.isRequired,
     ImageURL: PropTypes.string.isRequired,
     Genre: PropTypes.shape({
-      Name: PropTypes.string.isRequired
-    })
+      Name: PropTypes.string.isRequired,
+    }),
   }).isRequired,
-  onBackClick: PropTypes.func.isRequired
+  onBackClick: PropTypes.func.isRequired,
 };

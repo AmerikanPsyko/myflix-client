@@ -22,7 +22,7 @@ export function ProfileView(movies) {
   }, [])
 
   const getUser = () => {
-    let token = localStorage.getItem('token');
+    // let token = localStorage.getItem('token');
     let user = localStorage.getItem("user");
     axios.get(`https://cfmyflix.herokuapp.com/users/${user}`, {
       headers: { Authorization: `Bearer ${token}` }
