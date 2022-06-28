@@ -43232,7 +43232,7 @@ function ProfileView(movies) {
             console.log('Error');
         });
     };
-    const renderFavourits = ()=>{
+    const renderFavorites = ()=>{
         console.log(movies);
         if (movies.length + 0) return /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Row, {
             className: "justify-content-md-center",
@@ -43491,13 +43491,13 @@ function ProfileView(movies) {
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV("h2", {
-                    children: "Favourite Movies:"
+                    children: "Favorite Movies:"
                 }, void 0, false, {
                     fileName: "src/components/profile-view/profile-view.jsx",
                     lineNumber: 174,
                     columnNumber: 9
                 }, this),
-                renderFavourits()
+                renderFavorites()
             ]
         }, void 0, true, {
             fileName: "src/components/profile-view/profile-view.jsx",

@@ -85,7 +85,7 @@ export function ProfileView(movies) {
       });
   }
 
-  const renderFavourits = () => {
+  const renderFavorites = () => {
     console.log(movies)
     if (movies.length + 0) {
 
@@ -171,10 +171,10 @@ export function ProfileView(movies) {
         {cancelUserModal()}
 
         <p></p>
-        <h2>Favourite Movies:</h2>
+        <h2>Favorite Movies:</h2>
 
         {/* Calling the function that renders the users favourite movies on the profile page */}
-        {renderFavourits()}
+        {renderFavorites()}
 
       </Container>
     </>
