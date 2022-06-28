@@ -43179,7 +43179,6 @@ function ProfileView(props) {
         getUser();
     }, []);
     const getUser = ()=>{
-        // let token = localStorage.getItem('token');
         let user = localStorage.getItem("user");
         _axiosDefault.default.get(`https://cfmyflix.herokuapp.com/users/${user}`, {
             headers: {
@@ -43217,22 +43216,24 @@ function ProfileView(props) {
     };
     //Delete User
     const deleteUser = ()=>{
-        let token = localStorage.getItem('token');
+        setShowModal(false);
+        let token = localStorage.getItem("token");
         let user = localStorage.getItem("user");
         _axiosDefault.default.delete(`https://cfmyflix.herokuapp.com/users/${user}`, {
             headers: {
-                Authorization: 'Bearer ' + token
+                Authorization: "Bearer " + token
             }
         }).then((response)=>{
             console.log(response.data);
-            alert('Your profile has been deleted');
-            localStorage.removeItem('user');
-            localStorage.removeItem('token');
+            alert("Your profile has been deleted");
+            localStorage.removeItem("user");
+            localStorage.removeItem("token");
             window.open("/", "_self");
         }).catch((e)=>{
-            console.log('Error');
+            console.log("Error");
         });
     };
+    //Render Favorite Movies
     const renderFavorites = ()=>{
         console.log(props.movies);
         let movies = props.movies;
@@ -43246,7 +43247,7 @@ function ProfileView(props) {
                 children: "Add some movies to your list"
             }, void 0, false, {
                 fileName: "src/components/profile-view/profile-view.jsx",
-                lineNumber: 113,
+                lineNumber: 114,
                 columnNumber: 13
             }, this) : favoriteMoviesList.map((favMovie)=>/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Col, {
                     md: 6,
@@ -43255,18 +43256,18 @@ function ProfileView(props) {
                         movie: favMovie
                     }, void 0, false, {
                         fileName: "src/components/profile-view/profile-view.jsx",
-                        lineNumber: 117,
+                        lineNumber: 118,
                         columnNumber: 17
                     }, this)
                 }, favMovie._id, false, {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 116,
+                    lineNumber: 117,
                     columnNumber: 15
                 }, this)
             )
         }, void 0, false, {
             fileName: "src/components/profile-view/profile-view.jsx",
-            lineNumber: 111,
+            lineNumber: 112,
             columnNumber: 9
         }, this);
     };
@@ -43276,73 +43277,69 @@ function ProfileView(props) {
     const handleShow = ()=>setShow(true)
     ;
     // Function that contains the modal to delete a users account
-    // Function that contains the modal to delete a users account 
     const cancelUserModal = ()=>{
         return /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_jsxDevRuntime.Fragment, {
-            children: [
-                "setShowModal(false)",
-                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Modal, {
-                    style: {
-                        background: "transparent"
-                    },
-                    show: show,
-                    onHide: handleClose,
-                    children: [
-                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Modal.Header, {
-                            closeButton: true,
-                            children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Modal.Title, {
-                                children: "Delete your Account"
+            children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Modal, {
+                style: {
+                    background: "transparent"
+                },
+                show: show,
+                onHide: handleClose,
+                children: [
+                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Modal.Header, {
+                        closeButton: true,
+                        children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Modal.Title, {
+                            children: "Delete your Account"
+                        }, void 0, false, {
+                            fileName: "src/components/profile-view/profile-view.jsx",
+                            lineNumber: 140,
+                            columnNumber: 13
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "src/components/profile-view/profile-view.jsx",
+                        lineNumber: 139,
+                        columnNumber: 11
+                    }, this),
+                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Modal.Body, {
+                        children: "Are you sure you want to delete your account?"
+                    }, void 0, false, {
+                        fileName: "src/components/profile-view/profile-view.jsx",
+                        lineNumber: 142,
+                        columnNumber: 11
+                    }, this),
+                    /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Modal.Footer, {
+                        children: [
+                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
+                                variant: "secondary",
+                                onClick: handleClose,
+                                children: "Close"
                             }, void 0, false, {
                                 fileName: "src/components/profile-view/profile-view.jsx",
-                                lineNumber: 139,
-                                columnNumber: 11
+                                lineNumber: 144,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
+                                variant: "primary",
+                                onClick: deleteUser,
+                                children: "Delete"
+                            }, void 0, false, {
+                                fileName: "src/components/profile-view/profile-view.jsx",
+                                lineNumber: 147,
+                                columnNumber: 13
                             }, this)
-                        }, void 0, false, {
-                            fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 138,
-                            columnNumber: 9
-                        }, this),
-                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Modal.Body, {
-                            children: "Are you sure you want to delete your account?"
-                        }, void 0, false, {
-                            fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 141,
-                            columnNumber: 9
-                        }, this),
-                        /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Modal.Footer, {
-                            children: [
-                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
-                                    variant: "secondary",
-                                    onClick: handleClose,
-                                    children: "Close"
-                                }, void 0, false, {
-                                    fileName: "src/components/profile-view/profile-view.jsx",
-                                    lineNumber: 143,
-                                    columnNumber: 11
-                                }, this),
-                                /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
-                                    variant: "primary",
-                                    onClick: deleteUser,
-                                    children: "Delete"
-                                }, void 0, false, {
-                                    fileName: "src/components/profile-view/profile-view.jsx",
-                                    lineNumber: 146,
-                                    columnNumber: 11
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 142,
-                            columnNumber: 9
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 137,
-                    columnNumber: 7
-                }, this)
-            ]
-        }, void 0, true);
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/components/profile-view/profile-view.jsx",
+                        lineNumber: 143,
+                        columnNumber: 11
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/profile-view/profile-view.jsx",
+                lineNumber: 134,
+                columnNumber: 9
+            }, this)
+        }, void 0, false);
     };
     return /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_jsxDevRuntime.Fragment, {
         children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Container, {
@@ -43351,7 +43348,7 @@ function ProfileView(props) {
                     children: "Profile Page"
                 }, void 0, false, {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 158,
+                    lineNumber: 159,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form, {
@@ -43364,7 +43361,7 @@ function ProfileView(props) {
                                     children: "Username:"
                                 }, void 0, false, {
                                     fileName: "src/components/profile-view/profile-view.jsx",
-                                    lineNumber: 161,
+                                    lineNumber: 162,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Control, {
@@ -43375,13 +43372,13 @@ function ProfileView(props) {
                                     placeholder: "username"
                                 }, void 0, false, {
                                     fileName: "src/components/profile-view/profile-view.jsx",
-                                    lineNumber: 162,
+                                    lineNumber: 163,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 160,
+                            lineNumber: 161,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Group, {
@@ -43392,7 +43389,7 @@ function ProfileView(props) {
                                     children: "Email address"
                                 }, void 0, false, {
                                     fileName: "src/components/profile-view/profile-view.jsx",
-                                    lineNumber: 170,
+                                    lineNumber: 171,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Control, {
@@ -43403,13 +43400,13 @@ function ProfileView(props) {
                                     placeholder: "Enter new email"
                                 }, void 0, false, {
                                     fileName: "src/components/profile-view/profile-view.jsx",
-                                    lineNumber: 171,
+                                    lineNumber: 172,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 169,
+                            lineNumber: 170,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Group, {
@@ -43420,7 +43417,7 @@ function ProfileView(props) {
                                     children: "Birthday:"
                                 }, void 0, false, {
                                     fileName: "src/components/profile-view/profile-view.jsx",
-                                    lineNumber: 179,
+                                    lineNumber: 180,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Control, {
@@ -43431,13 +43428,13 @@ function ProfileView(props) {
                                     placeholder: "birthday"
                                 }, void 0, false, {
                                     fileName: "src/components/profile-view/profile-view.jsx",
-                                    lineNumber: 180,
+                                    lineNumber: 181,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 178,
+                            lineNumber: 179,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Group, {
@@ -43448,7 +43445,7 @@ function ProfileView(props) {
                                     children: "Password"
                                 }, void 0, false, {
                                     fileName: "src/components/profile-view/profile-view.jsx",
-                                    lineNumber: 188,
+                                    lineNumber: 189,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Control, {
@@ -43459,13 +43456,13 @@ function ProfileView(props) {
                                     placeholder: "Password"
                                 }, void 0, false, {
                                     fileName: "src/components/profile-view/profile-view.jsx",
-                                    lineNumber: 189,
+                                    lineNumber: 190,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 187,
+                            lineNumber: 188,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
@@ -43474,7 +43471,7 @@ function ProfileView(props) {
                             children: "Update you profile"
                         }, void 0, false, {
                             fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 196,
+                            lineNumber: 197,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
@@ -43484,33 +43481,33 @@ function ProfileView(props) {
                             children: "Delete your profile"
                         }, void 0, false, {
                             fileName: "src/components/profile-view/profile-view.jsx",
-                            lineNumber: 200,
+                            lineNumber: 201,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 159,
+                    lineNumber: 160,
                     columnNumber: 9
                 }, this),
                 cancelUserModal(),
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV("p", {}, void 0, false, {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 206,
+                    lineNumber: 207,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV("h2", {
                     children: "Favourite Movies:"
                 }, void 0, false, {
                     fileName: "src/components/profile-view/profile-view.jsx",
-                    lineNumber: 207,
+                    lineNumber: 208,
                     columnNumber: 9
                 }, this),
                 renderFavorites()
             ]
         }, void 0, true, {
             fileName: "src/components/profile-view/profile-view.jsx",
-            lineNumber: 157,
+            lineNumber: 158,
             columnNumber: 7
         }, this)
     }, void 0, false);

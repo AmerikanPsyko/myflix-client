@@ -16,7 +16,6 @@ import { Link } from "react-router-dom";
 import { MovieCard } from "../movie-card/movie-card";
 import { Modal } from "react-bootstrap";
 
-
 export function ProfileView(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -30,7 +29,6 @@ export function ProfileView(props) {
     getUser();
   }, []);
   const getUser = () => {
-    // let token = localStorage.getItem('token');
     let user = localStorage.getItem("user");
     axios
       .get(`https://cfmyflix.herokuapp.com/users/${user}`, {
@@ -47,6 +45,7 @@ export function ProfileView(props) {
         console.log("Error");
       });
   };
+
   // Update users info
   const updateUser = () => {
     let token = localStorage.getItem("token");
@@ -56,7 +55,7 @@ export function ProfileView(props) {
         `https://cfmyflix.herokuapp.com/users/${user}`,
         {
           Username: username,
-          Email: email, //Email is a variable which holds the email
+          Email: email,
           Birthday: birthday,
           Password: password,
         },
@@ -76,29 +75,31 @@ export function ProfileView(props) {
       });
   };
 
-//Delete User
- const deleteUser = () => {
-   
-  
-   let token = localStorage.getItem('token');
-   let user = localStorage.getItem("user");
-   axios.delete(`https://cfmyflix.herokuapp.com/users/${user}`,
-     {
-       headers: {
-         Authorization: 'Bearer ' + token
-       }
-     }).then((response) => {
-       console.log(response.data);
-       alert('Your profile has been deleted');
-       localStorage.removeItem('user');
-       localStorage.removeItem('token');
-       window.open("/", "_self");
-     })
-     .catch(e => {
-       console.log('Error')
-     });
- }
+  //Delete User
+  const deleteUser = () => {
+    setShowModal(false);
 
+    let token = localStorage.getItem("token");
+    let user = localStorage.getItem("user");
+    axios
+      .delete(`https://cfmyflix.herokuapp.com/users/${user}`, {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      })
+      .then((response) => {
+        console.log(response.data);
+        alert("Your profile has been deleted");
+        localStorage.removeItem("user");
+        localStorage.removeItem("token");
+        window.open("/", "_self");
+      })
+      .catch((e) => {
+        console.log("Error");
+      });
+  };
+
+  //Render Favorite Movies
   const renderFavorites = () => {
     console.log(props.movies);
     let movies = props.movies;
@@ -126,31 +127,31 @@ export function ProfileView(props) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-
   // Function that contains the modal to delete a users account
-// Function that contains the modal to delete a users account 
-const cancelUserModal = () => {
-
-  return (
-    <>
-    setShowModal(false)
-      <Modal style={{ background: "transparent" }} show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Delete your Account</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>Are you sure you want to delete your account?</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={deleteUser}>
-            Delete
-          </Button>
-        </Modal.Footer>
-      </Modal>
-    </>
-  );
-}
+  const cancelUserModal = () => {
+    return (
+      <>
+        <Modal
+          style={{ background: "transparent" }}
+          show={show}
+          onHide={handleClose}
+        >
+          <Modal.Header closeButton>
+            <Modal.Title>Delete your Account</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>Are you sure you want to delete your account?</Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+            <Button variant="primary" onClick={deleteUser}>
+              Delete
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      </>
+    );
+  };
 
   return (
     <>
@@ -196,16 +197,16 @@ const cancelUserModal = () => {
           <Button variant="warning" onClick={updateUser}>
             Update you profile
           </Button>
-          {/* This button triggers a modal that's called bellow   */}
+
           <Button className="deleteButton" variant="link" onClick={handleShow}>
             Delete your profile
           </Button>
         </Form>
-        {/* Calling the function that renders the modal to delete the users account */}
+
         {cancelUserModal()}
         <p></p>
         <h2>Favourite Movies:</h2>
-        {/* Calling the function that renders the users favourite movies on the profile page */}
+
         {renderFavorites()}
       </Container>
     </>
