@@ -4,6 +4,7 @@ import "./movie-view.scss";
 import { Card, Col, Container, Row, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import React, { useEffect, useState, setState } from 'react';
 
 export class MovieView extends React.Component {
   constructor(props) {
@@ -35,20 +36,18 @@ export class MovieView extends React.Component {
       })
       .catch((e) => console.log(e));
   }
-  componentDidMount() {
-    let accessToken = localStorage.getItem('token');
-    if (accessToken !== null) {
-      this.setState({
-        user: localStorage.getItem('user')
-      });
-    }
-  }
+
+ 
+
+
+ 
 
   
   // Add a movie to favourite movies
   addFavMovie = () => {
     let token = localStorage.getItem('token');
     let user = localStorage.getItem("user");
+    
     let userFavMovies = this.state.FavouriteMovies;
     let isFav = userFavMovies.filter(m => {
       return favouriteMoviesId.includes(this.props.movie._id)

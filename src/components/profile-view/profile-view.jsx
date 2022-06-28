@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Fragment } from 'react';
 import './profile-view.scss'
 import PropTypes from 'prop-types';
 import { Form, Button, Card, CardGroup, Container, Col, Row, Modal } from 'react-bootstrap';
@@ -16,6 +16,7 @@ export function ProfileView(movies) {
   const [show, setShow] = useState(false); // setting the state for the deleteUser modal 
   
   const token = localStorage.getItem('token');
+  let user = localStorage.getItem("user");
 
   useEffect(() => {
     getUser()
@@ -100,6 +101,8 @@ export function ProfileView(movies) {
           )}
 
         </Row>
+
+        
       )
     }
   }
