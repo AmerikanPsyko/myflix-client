@@ -12,7 +12,7 @@ export function ProfileView(movies) {
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const [birthday, setBirthday] = useState('');
-  const [favouriteMovies, setFavouriteMovies] = useState([]);
+  const [favoriteMovies, setFavoriteMovies] = useState([]);
   const [show, setShow] = useState(false); // setting the state for the deleteUser modal 
   
   const token = localStorage.getItem('token');
@@ -31,7 +31,7 @@ export function ProfileView(movies) {
       .then((response) => {
         setUsername(response.data.Username)
         setEmail(response.data.Email)
-        setFavouriteMovies(response.data.FavouriteMovies)
+        setFavoriteMovies(response.data.FavoriteMovies)
         console.log(response.data)
       })
       .catch(e => {
@@ -92,8 +92,8 @@ export function ProfileView(movies) {
       return (
         <Row className="justify-content-md-center">
 
-          {favouriteMovies.length === 0 ? (<h5>Add some movies to your list</h5>) : (
-            favouriteMovies.map((movieId, i) => (
+          {favoriteMovies.length === 0 ? (<h5>Add some movies to your list</h5>) : (
+            favoriteMovies.map((movieId, i) => (
               <Col md={6} lg={4}>
                 <MovieCard key={`${i}-${movieId}`} movie={movies.find(m => m._id == movieId)} />
               </Col>
