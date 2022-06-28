@@ -42365,11 +42365,12 @@ class MovieView extends _reactDefault.default.Component {
                                     lineNumber: 134,
                                     columnNumber: 19
                                 }, this),
-                                isFav && /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
+                                !isFav && /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
                                     className: "add-list__button",
                                     variant: "danger",
-                                    onClick: this.removeFavMovie,
-                                    children: "Remove from your list"
+                                    onClick: ()=>this.removeFavMovie(movie)
+                                    ,
+                                    children: "Remove from Favorites"
                                 }, void 0, false, {
                                     fileName: "src/components/movie-view/movie-view.jsx",
                                     lineNumber: 143,

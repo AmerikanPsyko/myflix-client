@@ -139,8 +139,14 @@ export class MovieView extends React.Component {
                     Add to your list
                   </Button>
                 )}
-                {isFav && (
-                  <Button className="add-list__button" variant="danger" onClick={this.removeFavMovie}>Remove from your list</Button>
+                   {!isFav && (
+                  <Button
+                    className="add-list__button"
+                    variant="danger"
+                    onClick={() => this.removeFavMovie(movie)}
+                  >
+                    Remove from Favorites
+                  </Button>
                 )}
               </Card.Body>
             </Card>
