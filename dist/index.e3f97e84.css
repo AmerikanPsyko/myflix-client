@@ -35,8 +35,12 @@
   color: #000;
 }
 
-.navbar-container, .navbar-elements__style {
+.navbar-elements__style {
   background-color: #fff;
+}
+
+a {
+  background-color: #a9a9a9;
 }
 
 .container-style {
