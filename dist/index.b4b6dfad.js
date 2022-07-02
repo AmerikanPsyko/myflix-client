@@ -42794,7 +42794,7 @@ function NavbarView({ user  }) {
     };
     return /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Container, {
         children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Navbar, {
-            bg: "dark",
+            bg: "light",
             expand: "lg",
             children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Container, {
                 className: "navbar-container",
@@ -42811,7 +42811,6 @@ function NavbarView({ user  }) {
                     }, this),
                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Nav, {
                         className: "me-auto navbar-elements__style",
-                        bg: "dark",
                         children: [
                             isAuth() && /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Nav.Link, {
                                 as: _reactRouterDom.Link,

@@ -23,11 +23,11 @@ export function NavbarView({ user }) {
 
   return (
     <Container>
-      <Navbar bg="dark"  expand="lg">
+      <Navbar bg="light"  expand="lg">
         <Container className="navbar-container">
           <Navbar.Brand as={Link} to={"/"} href="#home">MyFlix-App</Navbar.Brand>
 
-          <Nav className="me-auto navbar-elements__style" bg="dark">
+          <Nav className="me-auto navbar-elements__style">
 
             {isAuth() && (
               <Nav.Link as={Link} to={`/`}>Movies</Nav.Link>
