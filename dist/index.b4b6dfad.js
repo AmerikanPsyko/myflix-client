@@ -45106,22 +45106,27 @@ parcelHelpers.export(exports, "SET_MOVIES", ()=>SET_MOVIES
 );
 parcelHelpers.export(exports, "SET_FILTER", ()=>SET_FILTER
 );
-parcelHelpers.export(exports, "SET_AUTH", ()=>SET_AUTH
-);
 parcelHelpers.export(exports, "SET_USER", ()=>SET_USER
+);
+parcelHelpers.export(exports, "ADD_FAVMOVIE", ()=>ADD_FAVMOVIE
+);
+parcelHelpers.export(exports, "REM_FAVMOVIE", ()=>REM_FAVMOVIE
 );
 parcelHelpers.export(exports, "setMovies", ()=>setMovies
 );
 parcelHelpers.export(exports, "setFilter", ()=>setFilter
 );
-parcelHelpers.export(exports, "setAuth", ()=>setAuth
-);
 parcelHelpers.export(exports, "setUser", ()=>setUser
 );
-const SET_MOVIES = "SET_MOVIES";
-const SET_FILTER = "SET_FILTER";
-const SET_AUTH = "SET_AUTH";
-const SET_USER = "SET_USER";
+parcelHelpers.export(exports, "addFavMovie", ()=>addFavMovie
+);
+parcelHelpers.export(exports, "remFavMovie", ()=>remFavMovie
+);
+const SET_MOVIES = 'SET_MOVIES';
+const SET_FILTER = 'SET_FILTER';
+const SET_USER = 'SET_USER';
+const ADD_FAVMOVIE = 'ADD_FAVMOVIE';
+const REM_FAVMOVIE = 'REM_FAVMOVIE';
 function setMovies(value) {
     return {
         type: SET_MOVIES,
@@ -45134,19 +45139,22 @@ function setFilter(value) {
         value
     };
 }
-function setAuth(token, user) {
-    return {
-        type: SET_AUTH,
-        value: {
-            token,
-            user
-        }
-    };
-}
-function setUser(userObject) {
+function setUser(user) {
     return {
         type: SET_USER,
-        value: userObject
+        user: user?.Username
+    };
+}
+function addFavMovie(value) {
+    return {
+        type: ADD_FAVMOVIE,
+        value
+    };
+}
+function remFavMovie(value) {
+    return {
+        type: REM_FAVMOVIE,
+        value
     };
 }
 
@@ -45783,7 +45791,7 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _redux = require("redux");
 var _actions = require("../actions/actions");
-function visibilityFilter(state = "", action) {
+function visibilityFilter(state = '', action) {
     switch(action.type){
         case _actions.SET_FILTER:
             return action.value;
@@ -45791,6 +45799,7 @@ function visibilityFilter(state = "", action) {
             return state;
     }
 }
+//Contains switch case for SET_MOVIES, ADD_FAVMOVIE, and REM_FAVMOVIE
 function movies(state = [], action) {
     switch(action.type){
         case _actions.SET_MOVIES:
@@ -45799,30 +45808,13 @@ function movies(state = [], action) {
             return state;
     }
 }
-function getAuth() {
-    const token = localStorage.getItem("token");
-    const user1 = localStorage.getItem("user");
-    if (token && user1) return {
-        token: token,
-        user: user1
-    };
-    return null;
-}
-function userAuth(state = getAuth(), action) {
-    switch(action.type){
-        case _actions.SET_AUTH:
-            return {
-                ...state,
-                token: action.value.token,
-                user: action.value.user
-            };
-        default:
-            return state;
-    }
-}
-function user(state = {}, action) {
+function user(state = '', action) {
     switch(action.type){
         case _actions.SET_USER:
+            return action.user || localStorage.getItem('user') || '';
+        case _actions.ADD_FAVMOVIE:
+            return action.value;
+        case _actions.REM_FAVMOVIE:
             return action.value;
         default:
             return state;
@@ -45831,7 +45823,6 @@ function user(state = {}, action) {
 const moviesApp = _redux.combineReducers({
     visibilityFilter,
     movies,
-    userAuth,
     user
 });
 exports.default = moviesApp;
