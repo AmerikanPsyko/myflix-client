@@ -1059,15 +1059,10 @@ module.exports = require('./cjs/react-jsx-dev-runtime.development.js');
  */ 'use strict';
 (function() {
     var React = require('react');
-    // -----------------------------------------------------------------------------
-    var enableScopeAPI = false; // Experimental Create Event Handle API.
-    var enableCacheElement = false;
-    var enableTransitionTracing = false; // No known bugs, but needs performance testing
-    var enableLegacyHidden = false; // Enables unstable_avoidThisFallback feature in Fiber
-    // stuff. Intended to enable React core members to more easily debug scheduling
-    // issues in DEV builds.
-    var enableDebugTracing = false; // Track which Fiber(s) schedule render work.
     // ATTENTION
+    // When adding new symbols to this file,
+    // Please consider also adding to 'react-devtools-shared/src/backend/ReactSymbols'
+    // The Symbol used to tag the ReactElement-like types.
     var REACT_ELEMENT_TYPE = Symbol.for('react.element');
     var REACT_PORTAL_TYPE = Symbol.for('react.portal');
     var REACT_FRAGMENT_TYPE = Symbol.for('react.fragment');
@@ -1111,6 +1106,14 @@ module.exports = require('./cjs/react-jsx-dev-runtime.development.js');
         // eslint-disable-next-line react-internal/no-production-logging
         Function.prototype.apply.call(console[level], console, argsWithFormat);
     }
+    // -----------------------------------------------------------------------------
+    var enableScopeAPI = false; // Experimental Create Event Handle API.
+    var enableCacheElement = false;
+    var enableTransitionTracing = false; // No known bugs, but needs performance testing
+    var enableLegacyHidden = false; // Enables unstable_avoidThisFallback feature in Fiber
+    // stuff. Intended to enable React core members to more easily debug scheduling
+    // issues in DEV builds.
+    var enableDebugTracing = false; // Track which Fiber(s) schedule render work.
     var REACT_MODULE_REFERENCE;
     REACT_MODULE_REFERENCE = Symbol.for('react.module.reference');
     function isValidElementType(type) {
@@ -1888,16 +1891,11 @@ module.exports = require('./cjs/react.development.js');
  */ 'use strict';
 (function() {
     /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */ if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== 'undefined' && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart === 'function') __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
-    var ReactVersion = '18.1.0';
-    // -----------------------------------------------------------------------------
-    var enableScopeAPI = false; // Experimental Create Event Handle API.
-    var enableCacheElement = false;
-    var enableTransitionTracing = false; // No known bugs, but needs performance testing
-    var enableLegacyHidden = false; // Enables unstable_avoidThisFallback feature in Fiber
-    // stuff. Intended to enable React core members to more easily debug scheduling
-    // issues in DEV builds.
-    var enableDebugTracing = false; // Track which Fiber(s) schedule render work.
+    var ReactVersion = '18.2.0';
     // ATTENTION
+    // When adding new symbols to this file,
+    // Please consider also adding to 'react-devtools-shared/src/backend/ReactSymbols'
+    // The Symbol used to tag the ReactElement-like types.
     var REACT_ELEMENT_TYPE = Symbol.for('react.element');
     var REACT_PORTAL_TYPE = Symbol.for('react.portal');
     var REACT_FRAGMENT_TYPE = Symbol.for('react.fragment');
@@ -1967,6 +1965,14 @@ module.exports = require('./cjs/react.development.js');
         if (impl) stack += impl() || '';
         return stack;
     };
+    // -----------------------------------------------------------------------------
+    var enableScopeAPI = false; // Experimental Create Event Handle API.
+    var enableCacheElement = false;
+    var enableTransitionTracing = false; // No known bugs, but needs performance testing
+    var enableLegacyHidden = false; // Enables unstable_avoidThisFallback feature in Fiber
+    // stuff. Intended to enable React core members to more easily debug scheduling
+    // issues in DEV builds.
+    var enableDebugTracing = false; // Track which Fiber(s) schedule render work.
     var ReactSharedInternals = {
         ReactCurrentDispatcher: ReactCurrentDispatcher,
         ReactCurrentBatchConfig: ReactCurrentBatchConfig,
@@ -28806,15 +28812,10 @@ module.exports = require('./cjs/react-jsx-runtime.development.js');
  */ 'use strict';
 (function() {
     var React = require('react');
-    // -----------------------------------------------------------------------------
-    var enableScopeAPI = false; // Experimental Create Event Handle API.
-    var enableCacheElement = false;
-    var enableTransitionTracing = false; // No known bugs, but needs performance testing
-    var enableLegacyHidden = false; // Enables unstable_avoidThisFallback feature in Fiber
-    // stuff. Intended to enable React core members to more easily debug scheduling
-    // issues in DEV builds.
-    var enableDebugTracing = false; // Track which Fiber(s) schedule render work.
     // ATTENTION
+    // When adding new symbols to this file,
+    // Please consider also adding to 'react-devtools-shared/src/backend/ReactSymbols'
+    // The Symbol used to tag the ReactElement-like types.
     var REACT_ELEMENT_TYPE = Symbol.for('react.element');
     var REACT_PORTAL_TYPE = Symbol.for('react.portal');
     var REACT_FRAGMENT_TYPE = Symbol.for('react.fragment');
@@ -28858,6 +28859,14 @@ module.exports = require('./cjs/react-jsx-runtime.development.js');
         // eslint-disable-next-line react-internal/no-production-logging
         Function.prototype.apply.call(console[level], console, argsWithFormat);
     }
+    // -----------------------------------------------------------------------------
+    var enableScopeAPI = false; // Experimental Create Event Handle API.
+    var enableCacheElement = false;
+    var enableTransitionTracing = false; // No known bugs, but needs performance testing
+    var enableLegacyHidden = false; // Enables unstable_avoidThisFallback feature in Fiber
+    // stuff. Intended to enable React core members to more easily debug scheduling
+    // issues in DEV builds.
+    var enableDebugTracing = false; // Track which Fiber(s) schedule render work.
     var REACT_MODULE_REFERENCE;
     REACT_MODULE_REFERENCE = Symbol.for('react.module.reference');
     function isValidElementType(type) {
