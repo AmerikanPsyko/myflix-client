@@ -94,7 +94,7 @@ export class MovieView extends React.Component {
       <Container>
         <Row>
           <Col>
-            <Card className="movie-view__card" style={{ width: "40rem" }}>
+            <Card className="movie-view__card" style={{ width: "30rem" }}>
               <Card.Body>
                 <Card.Img
                   className="movie-view__image"
