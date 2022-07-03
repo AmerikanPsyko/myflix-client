@@ -42390,7 +42390,7 @@ class MovieView extends _reactDefault.default.Component {
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
-                                    variant: "outline-danger",
+                                    variant: "danger",
                                     onClick: ()=>{
                                         onBackClick();
                                     },

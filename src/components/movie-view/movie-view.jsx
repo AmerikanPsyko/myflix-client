@@ -121,7 +121,7 @@ export class MovieView extends React.Component {
                   {movie.Description}
                 </Card.Text>
                 <Button
-                  variant="outline-danger"
+                  variant="danger"
                   onClick={() => {
                     onBackClick();
                   }}
