@@ -19,7 +19,7 @@ export class MovieCard extends React.Component {
       <Card className="card-style justify-content-md-center" style={{ width: "16rem" }}>
         <Card.Img variant="top" className="image-style" src={movie.ImageURL} />
         <Card.Body>
-          <Card.Title className="title-style text-danger">
+          <Card.Title className="title-style text-info">
             {movie.Title}
           </Card.Title>
           <Link to={`/movies/${movie._id}`}>

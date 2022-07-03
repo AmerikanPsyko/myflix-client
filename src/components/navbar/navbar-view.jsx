@@ -92,7 +92,7 @@ export function NavbarView({ user }) {
       variant="dark"
     >
       <Container>
-        <Navbar.Brand className="navbar-logo" href="/">
+        <Navbar.Brand className="navbar-logo text-info" href="/">
           CFMyflix
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />

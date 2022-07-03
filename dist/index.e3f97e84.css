@@ -3,6 +3,13 @@
   height: 400px;
 }
 
+.card-style {
+  margin-top: 8px;
+  margin-bottom: 10px;
+  margin-left: 18px;
+  text-decoration: none;
+}
+
 .add-list__button {
   margin-left: 10px;
 }
@@ -39,6 +46,11 @@
 
 .my-flix {
   color: #4682b4;
+}
+
+* {
+  color: #fff;
+  background-color: #2f4f4f;
 }
 
 /*# sourceMappingURL=index.e3f97e84.css.map */

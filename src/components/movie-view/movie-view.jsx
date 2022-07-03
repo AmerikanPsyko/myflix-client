@@ -101,7 +101,7 @@ export class MovieView extends React.Component {
                   variant="top"
                   src={movie.ImageURL}
                 />
-                <Card.Title className="title-style">{movie.Title}</Card.Title>
+                <Card.Title className="title-style text-info">{movie.Title}</Card.Title>
 
                 <Card.Text className="text-style">
                   Genre: {movie.Genre.Name}

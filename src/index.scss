@@ -1,5 +1,12 @@
 $color: steelblue;
+$textColor: white;
 
 .my-flix {
   color: $color;
 }
+
+* {
+  background-color: darkslategray;
+  color: $textColor;
+}
+
