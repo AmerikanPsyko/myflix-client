@@ -42598,7 +42598,7 @@ function LoginView(props) {
                     columnNumber: 7
                 }, this),
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
-                    variant: "warning",
+                    variant: "danger",
                     type: "submit",
                     onClick: handleSubmit,
                     children: "Log In"
@@ -44643,6 +44643,7 @@ function RegistrationView(props) {
                         children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card.Body, {
                             children: [
                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card.Title, {
+                                    className: "card-title text-info",
                                     children: "Create an account for free"
                                 }, void 0, false, {
                                     fileName: "src/components/registration-view/registration-view.jsx",
@@ -44783,7 +44784,7 @@ function RegistrationView(props) {
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
-                                            variant: "warning",
+                                            variant: "danger",
                                             type: "submit",
                                             onClick: handleRegister,
                                             children: "Sign Up"
@@ -45043,6 +45044,7 @@ function ProfileView(props) {
         children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Container, {
             children: [
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV("h1", {
+                    className: "h2-header text-info",
                     children: "Profile Page"
                 }, void 0, false, {
                     fileName: "src/components/profile-view/profile-view.jsx",

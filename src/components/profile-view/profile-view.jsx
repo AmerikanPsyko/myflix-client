@@ -156,7 +156,7 @@ export function ProfileView(props) {
   return (
     <>
       <Container>
-        <h1>Profile Page</h1>
+        <h1 className="h2-header text-info">Profile Page</h1>
         <Form>
           <Form.Group className="mb-3" controlId="username">
             <Form.Label>Username:</Form.Label>

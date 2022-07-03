@@ -71,7 +71,7 @@ export function RegistrationView(props) {
           <CardGroup>
             <Card>
               <Card.Body>
-                <Card.Title>Create an account for free</Card.Title>
+                <Card.Title className='card-title text-info'>Create an account for free</Card.Title>
                 <Form>
                   <Form.Group className="mb-3">
                     <Form.Label>Username:</Form.Label>
@@ -122,7 +122,7 @@ export function RegistrationView(props) {
                     {emailErr && <p>{emailErr}</p>}
                   </Form.Group>
 
-                  <Button variant='warning'
+                  <Button variant='danger'
                     type='submit'
                     onClick={handleRegister}>
                     Sign Up

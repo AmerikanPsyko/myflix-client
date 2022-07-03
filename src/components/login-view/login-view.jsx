@@ -65,7 +65,7 @@ export function LoginView(props) {
         {/* code added here to display validation error */}
         {passwordErr && <p>{passwordErr}</p>}
       </Form.Group>
-      <Button variant="warning" type="submit" onClick={handleSubmit}>
+      <Button variant="danger" type="submit" onClick={handleSubmit}>
         Log In
       </Button>
     </Form>
