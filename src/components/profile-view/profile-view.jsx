@@ -77,7 +77,7 @@ export function ProfileView(props) {
 
   //Delete User
   const deleteUser = () => {
-    setShowModal(false);
+    setShow(false);
 
     let token = localStorage.getItem("token");
     let user = localStorage.getItem("user");
@@ -194,7 +194,7 @@ export function ProfileView(props) {
               placeholder="Password"
             />
           </Form.Group>
-          <Button variant="warning" onClick={updateUser}>
+          <Button variant="danger" onClick={updateUser}>
             Update you profile
           </Button>
 
