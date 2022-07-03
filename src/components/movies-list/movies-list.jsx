@@ -26,4 +26,6 @@ function MoviesList(props) {
   ));
 }
 
+
+
 export default connect(mapStateToProps)(MoviesList);

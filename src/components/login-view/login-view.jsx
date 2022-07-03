@@ -50,6 +50,7 @@ export function LoginView(props) {
   };
 
   return (
+    <Container>
     <Form className="login-form__style">
       <Form.Group className="mb-3 form-group" controlId="formUsername">
         <Form.Label>Username:</Form.Label>
@@ -68,5 +69,6 @@ export function LoginView(props) {
         Log In
       </Button>
     </Form>
+    </Container>
   );
 }

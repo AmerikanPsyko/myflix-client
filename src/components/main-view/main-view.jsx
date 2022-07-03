@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { setMovies, setUser } from "../../actions/actions";
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import { Row, Col, Container } from "react-bootstrap";
 import { NavbarView } from "../navbar/navbar-view";
@@ -13,7 +14,6 @@ import { ProfileView } from "../profile-view/profile-view";
 import { Navbar, Nav } from "react-bootstrap";
 import { connect } from "react-redux";
 import { setMovies } from "../../actions/actions";
-import { connect } from 'react-redux';
 
 // we haven't written this one yet
 import MoviesList from "../movies-list/movies-list";
@@ -24,12 +24,14 @@ import MoviesList from "../movies-list/movies-list";
 */
 
 class MainView extends React.Component {
-  //   constructor() {
-  //     super();
-  //     this.state = {
-  //     user: null
-  //     };
-  //   }
+  constructor() {
+    super();
+    this.state= {
+        movies: [],
+        user: null,
+        fullUser: {}
+    };
+}
 
   getMovies(token) {
     axios
@@ -48,55 +50,32 @@ class MainView extends React.Component {
   componentDidMount() {
     let accessToken = localStorage.getItem("token");
     if (accessToken !== null) {
+      this.setState({
+        user: localStorage.getItem("user"),
+      });
       this.getMovies(accessToken);
-      this.props.setUser(localStorage.getItem("user"));
     }
   }
 
-  componentDidUpdate() {}
-
-  componentWillUnmount() {}
-
+  /* When a user successfully logs in, this function updates the `user` property in state to that *particular user*/
   onLoggedIn(authData) {
+    console.log(authData);
+    this.setState({
+      user: authData.user.Username,
+    });
+
     localStorage.setItem("token", authData.token);
     localStorage.setItem("user", authData.user.Username);
-    const { setUser } = this.props;
-    setUser(authData.user.Username);
     this.getMovies(authData.token);
   }
 
   onLoggedOut() {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
-    this.props.setUser("");
+    this.setState({
+      user: null,
+    });
   }
-
-  // componentDidMount() {
-  //   let accessToken = localStorage.getItem("token");
-  //   if (accessToken !== null) {
-  //     this.setState({
-  //       user: localStorage.getItem("user"),
-  //     });
-  //     this.getMovies(accessToken);
-  //   }
-  // }
-
-  // onLoggedIn(authData) {
-  //   console.log(authData);
-  //   this.setState({
-  //     user: authData.user.Username,
-  //   });
-
-  //   localStorage.setItem("token", authData.token);
-  //   localStorage.setItem("user", authData.user.Username);
-  //   this.getMovies(authData.token);
-  // }
-
-  // onLoggedOut() {
-  //   localStorage.removeItem('token');
-  //   localStorage.removeItem('user');
-  //   this.props.setUser('');
-  // }
 
   render() {
     const { movies, user } = this.props;
@@ -104,23 +83,18 @@ class MainView extends React.Component {
     return (
       <Router>
         <NavbarView user={user} />
-
+        <Container>
         <Row className="main-view justify-content-md-center">
-          <Route
-            exact
-            path="/"
-            render={() => {
-              if (!user)
-                return (
-                  <Col>
-                    <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
-                  </Col>
-                );
-              if (movies.length === 0) return <div className="main-view" />;
-              // #6
-              return <MoviesList movies={movies} />;
-            }}
-          />
+                    {/* <Routes> */}
+                        {/* Login */}
+                    <Route exact path="/" render={() => {
+                        if (!user && !localStorage.getItem('user')) return <Col>
+                            <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+                        </Col>
+                        return <MoviesList movies={movies}/>
+                    }} />
+
+
 
           <Route
             path="/register"
@@ -154,6 +128,7 @@ class MainView extends React.Component {
               );
             }}
           />
+
 
           <Route
             path="/directors/:name"
@@ -221,13 +196,28 @@ class MainView extends React.Component {
             }}
           />
         </Row>
+        </Container>
       </Router>
     );
   }
 }
 
-let mapStateToProps = (state) => {
-  return { movies: state.movies, user: state.user };
-};
+let mapStateToProps = store => {
+  return { 
+      movies: store.movies,
+      user: store.user
+  }
+}
 
-export default connect(mapStateToProps, { setMovies })(MainView);
+const mapDispatchToProps = dispatch => {
+  return {
+      setUser: (user) => {
+          dispatch(setUser(user))
+      },
+      setMovies: (movies) => {
+          dispatch(setMovies(movies))
+      }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MainView);
