@@ -42308,7 +42308,7 @@ class MovieView extends _reactDefault.default.Component {
                     children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card, {
                         className: "movie-view__card",
                         style: {
-                            width: "40rem"
+                            width: "28rem"
                         },
                         children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card.Body, {
                             children: [
