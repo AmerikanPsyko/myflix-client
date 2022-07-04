@@ -42313,7 +42313,7 @@ class MovieView extends _reactDefault.default.Component {
                         children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card.Body, {
                             children: [
                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card.Img, {
-                                    className: "movie-view__image",
+                                    className: "movie-view__image image-fluid",
                                     variant: "top",
                                     src: movie.ImageURL
                                 }, void 0, false, {

@@ -97,7 +97,7 @@ export class MovieView extends React.Component {
             <Card className="movie-view__card" style={{ width: "28rem" }}>
               <Card.Body>
                 <Card.Img
-                  className="movie-view__image"
+                  className="movie-view__image image-fluid"
                   variant="top"
                   src={movie.ImageURL}
                 />
