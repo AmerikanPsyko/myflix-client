@@ -25,6 +25,6 @@ Using React, we build the client-side of the application working with the CF Mov
 
 - React
 - React-Redux
-- Parcel
+- Parcel (build)
 - React-Bootstrap
 - React-Router-DOM
